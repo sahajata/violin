@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4050FA7088DB5EE500771C13 /* Pods_Violin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12415F65F5086F701B6D95E6 /* Pods_Violin.framework */; };
 		4CE7A86A1AA4AA092780A86B /* Pods_ViolinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE7BEDCC209EA9A0116C250 /* Pods_ViolinTests.framework */; };
+		F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C2E212D4CFE0097E474 /* NetworkError.swift */; };
 		F0BA273E212C040A00456FBE /* Violin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BA2734212C040A00456FBE /* Violin.framework */; };
 		F0BA2743212C040A00456FBE /* ViolinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA2742212C040A00456FBE /* ViolinTests.swift */; };
 		F0BA2745212C040A00456FBE /* Violin.h in Headers */ = {isa = PBXBuildFile; fileRef = F0BA2737212C040A00456FBE /* Violin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +33,7 @@
 		592469124D1AB56E09499B30 /* Pods-ViolinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViolinTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BE7BEDCC209EA9A0116C250 /* Pods_ViolinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViolinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC8156893D287167796B545 /* Pods-Violin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violin.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Violin/Pods-Violin.release.xcconfig"; sourceTree = "<group>"; };
+		F0621C2E212D4CFE0097E474 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F0BA2734212C040A00456FBE /* Violin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Violin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BA2737212C040A00456FBE /* Violin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Violin.h; sourceTree = "<group>"; };
 		F0BA2738212C040A00456FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F0621C2D212D4C9A0097E474 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F0621C2E212D4CFE0097E474 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		F0BA272A212C040A00456FBE = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		F0BA274E212C049800456FBE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F0621C2D212D4C9A0097E474 /* Error */,
 				F0BA274F212C04C200456FBE /* Requester.swift */,
 			);
 			path = Network;
@@ -246,13 +257,19 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BA2750212C04C200456FBE /* Requester.swift in Sources */,
+				F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,11 +476,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Violin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.violin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -485,11 +499,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Violin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.violin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -506,11 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ViolinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -526,11 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ViolinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

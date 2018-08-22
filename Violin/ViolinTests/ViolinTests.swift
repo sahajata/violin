@@ -10,7 +10,7 @@ import XCTest
 @testable import Violin
 
 class ViolinTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,6 +22,12 @@ class ViolinTests: XCTestCase {
     }
     
     func testExample() {
+        Requester.request(url: "http://www.zhaowonet.com/lawyer/rpc/invoke/versionController/getBuild", succeed :{response in
+            
+        }, failure: {response in
+            
+        })
+        Thread.sleep(forTimeInterval: 10)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

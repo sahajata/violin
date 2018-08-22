@@ -5,8 +5,10 @@ inhibit_all_warnings!
 use_frameworks!
  
 target 'Violin' do
-  pod 'Alamofire', '~> 4.7'
-  pod 'Moya', '~> 11.0.2'
+  pod 'Moya/RxSwift', '~> 11.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'ObjectMapper', '~> 3.3'
+  
   target 'ViolinTests' do
     inherit! :search_paths
   end
