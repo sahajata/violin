@@ -7,5 +7,8 @@ use_frameworks!
 target 'Violin' do
   pod 'Alamofire', '~> 4.7'
   pod 'Moya', '~> 11.0.2'
+  target 'ViolinTests' do
+    inherit! :search_paths
+  end
 end
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4050FA7088DB5EE500771C13 /* Pods_Violin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12415F65F5086F701B6D95E6 /* Pods_Violin.framework */; };
+		4CE7A86A1AA4AA092780A86B /* Pods_ViolinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE7BEDCC209EA9A0116C250 /* Pods_ViolinTests.framework */; };
 		F0BA273E212C040A00456FBE /* Violin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BA2734212C040A00456FBE /* Violin.framework */; };
 		F0BA2743212C040A00456FBE /* ViolinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA2742212C040A00456FBE /* ViolinTests.swift */; };
 		F0BA2745212C040A00456FBE /* Violin.h in Headers */ = {isa = PBXBuildFile; fileRef = F0BA2737212C040A00456FBE /* Violin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +28,9 @@
 /* Begin PBXFileReference section */
 		12415F65F5086F701B6D95E6 /* Pods_Violin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Violin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2533F64AD126CA7656B0F /* Pods-Violin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violin.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Violin/Pods-Violin.debug.xcconfig"; sourceTree = "<group>"; };
+		43C482BC421AFF6B3810D3D2 /* Pods-ViolinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViolinTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		592469124D1AB56E09499B30 /* Pods-ViolinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViolinTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BE7BEDCC209EA9A0116C250 /* Pods_ViolinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViolinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC8156893D287167796B545 /* Pods-Violin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violin.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Violin/Pods-Violin.release.xcconfig"; sourceTree = "<group>"; };
 		F0BA2734212C040A00456FBE /* Violin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Violin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BA2737212C040A00456FBE /* Violin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Violin.h; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BA273E212C040A00456FBE /* Violin.framework in Frameworks */,
+				4CE7A86A1AA4AA092780A86B /* Pods_ViolinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 			children = (
 				21F2533F64AD126CA7656B0F /* Pods-Violin.debug.xcconfig */,
 				6CC8156893D287167796B545 /* Pods-Violin.release.xcconfig */,
+				43C482BC421AFF6B3810D3D2 /* Pods-ViolinTests.debug.xcconfig */,
+				592469124D1AB56E09499B30 /* Pods-ViolinTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -70,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				12415F65F5086F701B6D95E6 /* Pods_Violin.framework */,
+				6BE7BEDCC209EA9A0116C250 /* Pods_ViolinTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0BA274B212C040A00456FBE /* Build configuration list for PBXNativeTarget "ViolinTests" */;
 			buildPhases = (
+				D0F6AAA7669DFF015D12386F /* [CP] Check Pods Manifest.lock */,
 				F0BA2739212C040A00456FBE /* Sources */,
 				F0BA273A212C040A00456FBE /* Frameworks */,
 				F0BA273B212C040A00456FBE /* Resources */,
+				38D07DE38476F163BE437743 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +237,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		38D07DE38476F163BE437743 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ViolinTests/Pods-ViolinTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0F6AAA7669DFF015D12386F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ViolinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F9182400856E5FF67182A4FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,9 +500,11 @@
 		};
 		F0BA274C212C040A00456FBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C482BC421AFF6B3810D3D2 /* Pods-ViolinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,9 +520,11 @@
 		};
 		F0BA274D212C040A00456FBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 592469124D1AB56E09499B30 /* Pods-ViolinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
