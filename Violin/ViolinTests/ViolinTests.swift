@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Moya
 @testable import Violin
 
 class ViolinTests: XCTestCase {
@@ -21,15 +22,20 @@ class ViolinTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        Requester.request(url: "http://www.zhaowonet.com/lawyer/rpc/invoke/versionController/getBuild", succeed :{response in
-            
-        }, failure: {response in
-            
+    func testRequest() {
+        let expectations = expectation(description: "test")
+        
+        let service: LoginService = LoginService()
+        service.request(methed: "login", parameters: "18575626156", "274d65c00e145da5fc96afcf50b72bf3", "123456", "wefwefweew", succeed: {(response: ViewLawyer) in
+            debugPrint(response.realname!)
+            expectations.fulfill()
+            XCTAssertNotNil(response.realname)
+        }, failure: {(error: NetworkError) in
+            print("failurefailurefailurefailurefailurefailurefailurefailure")
         })
-        Thread.sleep(forTimeInterval: 10)
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let timeout = 15 as TimeInterval
+        waitForExpectations(timeout: timeout, handler: nil)
+        
     }
     
     func testPerformanceExample() {

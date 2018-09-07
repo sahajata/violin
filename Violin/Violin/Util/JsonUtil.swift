@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+public class JsonUtil {
+    
+    public static func toJson(_ object: Any) -> String {
+        let json = JSON(object)
+        return json.rawString()!
+    }
+    
+}

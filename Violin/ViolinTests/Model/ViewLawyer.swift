@@ -8,18 +8,17 @@
 
 import ObjectMapper
 
-public struct Human: Mappable {
+public struct ViewLawyer: Mappable {
     
-    public var name: String?
-    public var age: Int?
+    public var id: Int?
+    public var mobilePhone: String?
+    public var realname: String?
     
-    public init?(map: Map) {
-        self.name <- map["name"]
-        self.age <- map["age"]
-    }
+    public init?(map: Map) { }
     
     mutating public func mapping(map: Map) {
-        self.name <- map["name"]
-        self.age <- map["age"]
+        id <- map["id"]
+        mobilePhone <- map["mobilePhone"]
+        realname <- map["realname"]
     }
 }

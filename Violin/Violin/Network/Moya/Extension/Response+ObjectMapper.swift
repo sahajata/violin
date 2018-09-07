@@ -1,5 +1,5 @@
 //
-//  Response+Extension.swift
+//  Response+ObjectMapper.swift
 //  Violin
 //
 //  Created by liuzhiyi on 2018/8/30.
@@ -10,7 +10,6 @@ import Foundation
 import Moya
 import ObjectMapper
 
-// MARK: BaseMappable
 public extension Response {
     
     public func mapObject<T: BaseMappable>(_ type: T.Type, context: MapContext? = nil) throws -> T {
@@ -42,8 +41,6 @@ public extension Response {
     }
 }
 
-
-// MARK: ImmutableMappable
 public extension Response {
 
     public func mapObject<T: ImmutableMappable>(_ type: T.Type, context: MapContext? = nil) throws -> T {

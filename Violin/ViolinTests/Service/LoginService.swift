@@ -9,7 +9,7 @@
 import Foundation
 import Violin
 
-public class ViolinService: BaseService {
+public class LoginService: BaseService {
     
     public var serverUrl: String {return "http://192.168.10.86:8080/lawyer/rpc/invoke"}
     

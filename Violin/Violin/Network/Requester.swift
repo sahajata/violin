@@ -6,21 +6,85 @@
 //
 
 import Foundation
+import Moya
 import Alamofire
+import ObjectMapper
+import RxSwift
 
-public class Requester : NSObject {
+public class Requester {
     
-    
-    public static func request(url: String, method: HTTPMethod = .post, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, succeed: @escaping (DataResponse<Any>?)-> (), failure: @escaping(DataResponse<Any>?)-> ()) {
-        let request: DataRequest = Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers);
-        request.responseJSON { response in
-            if (response.result.isSuccess) {
-                debugPrint("succeed:\n\(String(describing: response.result.value))")
-                succeed(response)
-            } else {
-                debugPrint("failure:\n\(String(describing: response.result.error))")
-                failure(response)
+    // MARK: 普通类型返回值
+    public static func request<T>(service: SimpleService, succeed: @escaping (T)-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
+            switch event {
+            case .success(let element):
+                succeed(element as! T)
+            case .error(let error):
+                self.error(error: error, failure: failure)
             }
         }
+        return disposable
+    }
+    
+    // MARK: 普通类型集合返回值
+    public static func request<T>(service: SimpleService, succeed: @escaping ([T])-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
+            switch event {
+            case .success(let element):
+                debugPrint(element)
+            case .error(let error):
+                self.error(error: error, failure: failure)
+            }
+        }
+        return disposable
+    }
+    
+    // MARK: Model类型返回值
+    public static func request<T: BaseMappable>(service: SimpleService, succeed: @escaping (T)-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).mapObject(T.self).subscribe{event in
+            switch event {
+            case .success(let element):
+                succeed(element)
+            case .error(let error):
+                self.error(error: error, failure: failure)
+            }
+        }
+        return disposable
+    }
+    
+    // MARK: Model集合类型返回值
+    public static func request<T: BaseMappable>(service: SimpleService, succeed: @escaping ([T])-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).mapArray(T.self).subscribe{event in
+            switch event {
+            case .success(let element):
+                succeed(element)
+            case .error(let error):
+                self.error(error: error, failure: failure)
+            }
+        }
+        return disposable
+    }
+    
+    // MARK: 字典类型返回值
+    public static func request<T>(service: SimpleService, succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
+            switch event {
+            case .success(let element):
+                debugPrint(element)
+            case .error(let error):
+                self.error(error: error, failure: failure)
+            }
+        }
+        return disposable
+    }
+    
+    private static func error(error: Error, failure: @escaping(Error)-> ()) {
+        debugPrint(error)
+        failure(error)
     }
 }
