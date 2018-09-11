@@ -23,10 +23,11 @@ public protocol BaseNetworkErrorHandler {
     // 处理业务异常
     func handleBusinessExcepion(messages: Dictionary<String, String>)
     
+    // 处理超时异常
+    func handleTimeout()
+    
     // 处理未知异常
     func handleUnknown()
     
-    // 处理超时异常
-    func handleTimeout()
     
 }
