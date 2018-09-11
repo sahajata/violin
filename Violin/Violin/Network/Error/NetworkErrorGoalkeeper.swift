@@ -31,8 +31,9 @@ public class NetworkErrorGoalkeeper {
                 case 409: // 业务异常
                     var businessException = [String : String]()
                     let json = JSON(response.data)
-                    for (key, value) in json {
-                        businessException[key] = value.string
+                    for (_, value) in json["errors"] {
+                        let errors: [String: JSON] = value.dictionary!
+                        businessException[(errors["code"]?.string)!] = errors["message"]?.string
                     }
                     throw NetworkError.BUSINESS_EXCEPTION(businessException)
                 case 500...600: // 服务器内部异常
