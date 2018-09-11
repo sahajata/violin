@@ -6,14 +6,11 @@
 //  Copyright © 2018年 Karma. All rights reserved.
 //
 
-import Foundation
 import Violin
 
-public class LoginService: BaseService {
+public class LoginService: NetworkErrorHandler, BaseService {
     
     public var serverUrl: String {return "http://192.168.10.86:8080/lawyer/rpc/invoke"}
     
     public var beanId: String {return "loginController"}
-    
-    
 }
