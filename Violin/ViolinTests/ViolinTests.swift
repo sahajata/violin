@@ -23,16 +23,17 @@ class ViolinTests: XCTestCase {
     }
     
     func testRequest() {
-        let expectations = expectation(description: "test")
+        let expectations = expectation(description: String.EMPTY)
         
-        let service: LoginService = LoginService()
-        service.request(methed: "login", parameters: "18575626156", "274d65c00e145da5fc96afcf50b72bf3", "123456", "wefwefweew", succeed: {(response: ViewLawyer) in
-            debugPrint(response.realname!)
+        let mineService: MineService = MineService()
+        mineService.request(methed: "perfectPassword", succeed: {(result: Bool) in
+            debugPrint(result)
             expectations.fulfill()
-            XCTAssertNotNil(response.realname)
+            XCTAssertNotNil(result)
         }, failure: {(error: NetworkError) in
             print("failurefailurefailurefailurefailurefailurefailurefailure")
         })
+        
         let timeout = 15 as TimeInterval
         waitForExpectations(timeout: timeout, handler: nil)
         

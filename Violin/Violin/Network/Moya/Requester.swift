@@ -15,7 +15,7 @@ public class Requester {
     
     // MARK: 普通类型返回值
     public static func request<T>(service: SimpleService, succeed: @escaping (T)-> (), failure: @escaping(Error)-> ()) -> Disposable {
-        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
@@ -29,7 +29,7 @@ public class Requester {
     
     // MARK: 普通类型集合返回值
     public static func request<T>(service: SimpleService, succeed: @escaping ([T])-> (), failure: @escaping(Error)-> ()) -> Disposable {
-        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
@@ -43,7 +43,7 @@ public class Requester {
     
     // MARK: Model类型返回值
     public static func request<T: BaseMappable>(service: SimpleService, succeed: @escaping (T)-> (), failure: @escaping(Error)-> ()) -> Disposable {
-        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
         let disposable: Disposable = provider.rx.request(service).mapObject(T.self).subscribe{event in
             switch event {
             case .success(let element):
@@ -57,7 +57,7 @@ public class Requester {
     
     // MARK: Model集合类型返回值
     public static func request<T: BaseMappable>(service: SimpleService, succeed: @escaping ([T])-> (), failure: @escaping(Error)-> ()) -> Disposable {
-        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
         let disposable: Disposable = provider.rx.request(service).mapArray(T.self).subscribe{event in
             switch event {
             case .success(let element):
@@ -71,7 +71,7 @@ public class Requester {
     
     // MARK: 字典类型返回值
     public static func request<T>(service: SimpleService, succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(Error)-> ()) -> Disposable {
-        let provider = MoyaProvider<SimpleService>(plugins: [StatusCodeErrorPlugin()])
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):

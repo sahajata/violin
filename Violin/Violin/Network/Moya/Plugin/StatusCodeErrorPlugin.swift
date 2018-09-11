@@ -11,7 +11,10 @@ import Result
 struct StatusCodeErrorPlugin: PluginType {
     
     func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> {
-        let statusCode: Int = result.value!.statusCode
-        return (statusCode == 200 || statusCode == 304) ? result : Result(error: MoyaError.statusCode(result.value!))
+        if (result.value != nil) {
+            let statusCode: Int = result.value!.statusCode
+            return (statusCode == 200 || statusCode == 304) ? result : Result(error: MoyaError.statusCode(result.value!))
+        }
+        return result
     }
 }

@@ -12,6 +12,7 @@ public enum NetworkError: Error {
     case DISCONNECTED // 网络未连接
     case NOT_FOUND // 连接未找到或无法建立连接
     case BUSINESS_EXCEPTION(Dictionary<String, String>) // 业务异常
+    case TIMEOUT // 超时
     case UNKNOWN // 未知
 }
 

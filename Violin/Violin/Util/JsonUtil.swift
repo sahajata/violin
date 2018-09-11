@@ -15,5 +15,4 @@ public class JsonUtil {
         let json = JSON(object)
         return json.rawString()!
     }
-    
 }

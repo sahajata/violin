@@ -12,5 +12,14 @@ public class QueryParameter {
     
     var pageSize: Int = 10
     
-    var 
+    var fieldOrders: Array<FieldOrder> = []
+    
+    public func addOrder(name: String, desc: Bool) {
+        let fieldOrder: FieldOrder = FieldOrder(name: name, desc: desc)
+        fieldOrders.append(fieldOrder)
+    }
+    
+    public func clearOrders() {
+        fieldOrders.removeAll()
+    }
 }

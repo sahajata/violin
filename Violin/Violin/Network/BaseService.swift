@@ -9,8 +9,9 @@ import Foundation
 import Moya
 import SwiftyJSON
 import ObjectMapper
+import RxSwift
 
-public protocol BaseService {
+public protocol BaseService: BaseNetworkErrorHandler {
     
     var serverUrl: String{ get }
 
@@ -21,7 +22,7 @@ extension BaseService {
     
     private func buildService(_ methed: String, _ parameters: [Any]) -> SimpleService {
         var task: Task = .requestPlain
-        if (parameters.count > 1 || parameters[0] != nil) {
+        if (!parameters.isEmpty) {
             let encoding = URLEncoding(destination: .methodDependent, arrayEncoding: .noBrackets, boolEncoding: .literal)
             let json = JsonUtil.toJson(parameters).removeSpecialCharacters()
             let args = ["args": json]
@@ -32,40 +33,114 @@ extension BaseService {
         return service
     }
     
-    func request<T>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
+    // MARK: 返回单个普通结果的泛型
+    public func request<T>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in
-            // 处理将普通Error转换为NetworkError
-            print("error")
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                if (parameters.isEmpty) {
+                    self.request(methed: methed, succeed: succeed, failure: failure)
+                } else {
+                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+                }
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
         Requester.request(service: service, succeed: succeed, failure: failureBlock)
     }
     
-    func request<T>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
+    // MARK: 返回普通结果集合的泛型
+    public func request<T>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
+        print(2)
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in
-            // 处理将普通Error转换为NetworkError
-            print("error")
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                if (parameters.isEmpty) {
+                    self.request(methed: methed, succeed: succeed, failure: failure)
+                } else {
+                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+                }
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
         Requester.request(service: service, succeed: succeed, failure: failureBlock)
     }
     
-    func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
+    // MARK: 返回单个实体结果的泛型
+    public func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in
-            // 处理将普通Error转换为NetworkError
-            print("error")
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                if (parameters.isEmpty) {
+                    self.request(methed: methed, succeed: succeed, failure: failure)
+                } else {
+                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+                }
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
         Requester.request(service: service, succeed: succeed, failure: failureBlock)
     }
     
-    func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
+    // MARK: 返回实体结果集合的泛型
+    public func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in
-            // 处理将普通Error转换为NetworkError
-            print("error")
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                if (parameters.isEmpty) {
+                    self.request(methed: methed, succeed: succeed, failure: failure)
+                } else {
+                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+                }
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
         Requester.request(service: service, succeed: succeed, failure: failureBlock)
     }
-
+    
+    // 返回字典结果的泛型
+    public func request<T>(methed: String, parameters: Any..., succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(NetworkError)-> ()) {
+        let service: SimpleService = buildService(methed, parameters)
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                if (parameters.isEmpty) {
+                    self.request(methed: methed, succeed: succeed, failure: failure)
+                } else {
+                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+                }
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
+        }
+        Requester.request(service: service, succeed: succeed, failure: failureBlock)
+    }
+    
+    // MARK: 处理异常
+    private func handleFailure(error: Error, failure: @escaping(NetworkError)-> (), callback : @escaping () -> ()) {
+        do {
+            try NetworkErrorGoalkeeper.profiling(error)
+        } catch NetworkError.UNAUTHORIZE {
+            let queue = DispatchQueue(label: String.EMPTY)
+            queue.async {
+                self.handleUnauthorize(callback)
+            }
+        } catch NetworkError.DISCONNECTED {
+            self.handleDisconnected()
+            failure(NetworkError.DISCONNECTED)
+        } catch NetworkError.BUSINESS_EXCEPTION(let messages) {
+            self.handleBusinessExcepion(messages: messages)
+            failure(NetworkError.BUSINESS_EXCEPTION(messages))
+        } catch NetworkError.NOT_FOUND  {
+            self.handleNotFound()
+            failure(NetworkError.NOT_FOUND)
+        } catch NetworkError.SERVER_EXCEPTION {
+            self.handleServiceException()
+            failure(NetworkError.SERVER_EXCEPTION)
+        } catch NetworkError.TIMEOUT {
+            self.handleTimeout()
+            failure(NetworkError.TIMEOUT)
+        } catch {
+            self.handleUnknown()
+            failure(NetworkError.UNKNOWN)
+        }
+    }
 }

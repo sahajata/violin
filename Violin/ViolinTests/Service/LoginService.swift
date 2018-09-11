@@ -10,7 +10,7 @@ import Violin
 
 public class LoginService: NetworkErrorHandler, BaseService {
     
-    public var serverUrl: String {return "http://192.168.10.86:8080/lawyer/rpc/invoke"}
+    public var serverUrl: String {return "http://192.168.1.152/lawyer/rpc/invoke"}
     
     public var beanId: String {return "loginController"}
 }
