@@ -11,8 +11,15 @@ Pod::Spec.new do |s|
   s.requires_arc = true # 是否启用ARC
   s.platform     = :ios, "10.0" # 平台及支持的最低版本
   s.frameworks   = "UIKit", "Foundation" #支持的框架
-  s.dependency "Alamofire", "~> 4.7"
-  s.dependency "Moya", "~> 11.0.2"
+  s.dependency "Moya/RxSwift", "~> 11.0"
+  s.dependency "SwiftyJSON", "~> 4.0"
+  s.dependency "ObjectMapper", "~> 3.3"
+  s.dependency "SwiftDate", "~> 5.0"
+  s.dependency "SDWebImage", "~> 4.0"
+  s.dependency "Hue", "~> 3.0"
+  s.dependency "MBProgressHUD", "~> 1.1"
+  s.dependency "DZNEmptyDataSet", "~> 1.8"
+  s.dependency "MJRefresh", "~> 3.1"
 
   s.author             = { "BY" => "3328886@qq.com" } # 作者信息
   s.social_media_url   = "https://github.com/sahajata" # 个人主页
