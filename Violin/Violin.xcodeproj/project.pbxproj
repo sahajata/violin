@@ -152,7 +152,8 @@
 				F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */,
 				F02E41D8214662D200EBF214 /* System.swift */,
 			);
-			path = Core;
+			name = Core;
+			path = ../../Example/Example/Core;
 			sourceTree = "<group>";
 		};
 		F0621C2D212D4C9A0097E474 /* Error */ = {
@@ -192,7 +193,8 @@
 				F02E41CC21463A9C00EBF214 /* MineService.swift */,
 				F0C75EE6214A074900CBCBA0 /* BaseService.swift */,
 			);
-			path = Service;
+			name = Service;
+			path = ../../Example/Example/Service;
 			sourceTree = "<group>";
 		};
 		F0748BCC21377D5E00299E1F /* Extension */ = {
@@ -210,7 +212,8 @@
 			children = (
 				F0748BD021378EEA00299E1F /* ViewLawyer.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = ../../Example/Example/Model;
 			sourceTree = "<group>";
 		};
 		F0748BD62137C24400299E1F /* Core */ = {
@@ -666,7 +669,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Violin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.violin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -689,7 +696,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Violin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.violin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -706,7 +717,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ViolinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -722,7 +737,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q93HPMKTTW;
 				INFOPLIST_FILE = ViolinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ViolinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

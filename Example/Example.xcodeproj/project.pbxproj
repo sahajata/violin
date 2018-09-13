@@ -16,6 +16,12 @@
 		F0C75F03214A643100CBCBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75F01214A643100CBCBA0 /* LaunchScreen.storyboard */; };
 		F0C75F0E214A643200CBCBA0 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F0D214A643200CBCBA0 /* ExampleTests.swift */; };
 		F0C75F19214A643200CBCBA0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F18214A643200CBCBA0 /* ExampleUITests.swift */; };
+		F0C75F3A214A6B0000CBCBA0 /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F31214A6A6C00CBCBA0 /* ViewLawyer.swift */; };
+		F0C75F3B214A6B0000CBCBA0 /* DefaultNetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */; };
+		F0C75F3C214A6B0000CBCBA0 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F38214A6A6D00CBCBA0 /* System.swift */; };
+		F0C75F3D214A6B0000CBCBA0 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */; };
+		F0C75F3E214A6B0000CBCBA0 /* MineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F34214A6A6C00CBCBA0 /* MineService.swift */; };
+		F0C75F3F214A6B0000CBCBA0 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F35214A6A6C00CBCBA0 /* BaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,12 @@
 		F0C75F14214A643200CBCBA0 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C75F18214A643200CBCBA0 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		F0C75F1A214A643200CBCBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0C75F31214A6A6C00CBCBA0 /* ViewLawyer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
+		F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		F0C75F34214A6A6C00CBCBA0 /* MineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineService.swift; sourceTree = "<group>"; };
+		F0C75F35214A6A6C00CBCBA0 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkErrorDelegate.swift; sourceTree = "<group>"; };
+		F0C75F38214A6A6D00CBCBA0 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		F885E683EB4D3A1B46B58F76 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +141,9 @@
 		F0C75EF7214A642F00CBCBA0 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				F0C75F32214A6A6C00CBCBA0 /* Model */,
+				F0C75F39214A6A6D00CBCBA0 /* Core */,
+				F0C75F36214A6A6C00CBCBA0 /* Service */,
 				F0C75EF8214A642F00CBCBA0 /* AppDelegate.swift */,
 				F0C75EFA214A642F00CBCBA0 /* ViewController.swift */,
 				F0C75EFC214A642F00CBCBA0 /* Main.storyboard */,
@@ -157,6 +172,33 @@
 			path = ExampleUITests;
 			sourceTree = "<group>";
 		};
+		F0C75F32214A6A6C00CBCBA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0C75F31214A6A6C00CBCBA0 /* ViewLawyer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0C75F36214A6A6C00CBCBA0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */,
+				F0C75F34214A6A6C00CBCBA0 /* MineService.swift */,
+				F0C75F35214A6A6C00CBCBA0 /* BaseService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F0C75F39214A6A6D00CBCBA0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */,
+				F0C75F38214A6A6D00CBCBA0 /* System.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +210,7 @@
 				F0C75EF1214A642F00CBCBA0 /* Sources */,
 				F0C75EF2214A642F00CBCBA0 /* Frameworks */,
 				F0C75EF3214A642F00CBCBA0 /* Resources */,
+				8A87B8A0AE37744B8F11986E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,6 +365,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A87B8A0AE37744B8F11986E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,6 +412,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C75F3A214A6B0000CBCBA0 /* ViewLawyer.swift in Sources */,
+				F0C75F3B214A6B0000CBCBA0 /* DefaultNetworkErrorDelegate.swift in Sources */,
+				F0C75F3C214A6B0000CBCBA0 /* System.swift in Sources */,
+				F0C75F3D214A6B0000CBCBA0 /* LoginService.swift in Sources */,
+				F0C75F3E214A6B0000CBCBA0 /* MineService.swift in Sources */,
+				F0C75F3F214A6B0000CBCBA0 /* BaseService.swift in Sources */,
 				F0C75EFB214A642F00CBCBA0 /* ViewController.swift in Sources */,
 				F0C75EF9214A642F00CBCBA0 /* AppDelegate.swift in Sources */,
 			);
@@ -506,10 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -524,10 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -543,11 +626,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -564,11 +643,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -583,11 +658,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -602,11 +673,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajata.ExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

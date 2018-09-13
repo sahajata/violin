@@ -23,7 +23,7 @@ open class ViolinService {
         return String.EMPTY
     }
     
-    var delegate: NetworkErrorDelegate?
+    open var delegate: NetworkErrorDelegate?
     
     private func buildService(_ methed: String, _ parameters: [Any]) -> SimpleService {
         var task: Task = .requestPlain

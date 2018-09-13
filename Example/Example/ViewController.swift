@@ -13,7 +13,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let mineService: MineService = MineService()
+        mineService.delegate = DefaultNetworkErrorDelegate()
+        mineService.request(methed: "perfectPassword", succeed: {(result: Bool) in
+            debugPrint(result)
+        }, failure: {(error: NetworkError) in
+            print("failurefailurefailurefailurefailurefailurefailurefailure")
+        })
     }
 
     override func didReceiveMemoryWarning() {
