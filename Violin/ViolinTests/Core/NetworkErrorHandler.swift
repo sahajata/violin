@@ -8,7 +8,7 @@
 
 import Violin
 
-public class NetworkErrorHandler : BaseNetworkErrorHandler {
+public class NetworkErrorHandler : NetworkErrorDelegate {
     
     public func handleUnauthorize(_ callback : @escaping () -> ()) {
         print("handleUnauthorize")

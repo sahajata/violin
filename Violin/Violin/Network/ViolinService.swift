@@ -11,14 +11,17 @@ import SwiftyJSON
 import ObjectMapper
 import RxSwift
 
-public protocol BaseService: BaseNetworkErrorHandler {
+public protocol ViolinService {
     
-    var serverUrl: String{ get }
+    var serverUrl: String { get }
 
     var beanId: String { get }
+    
 }
 
-extension BaseService {
+extension ViolinService {
+    
+    public var delegate: NetworkErrorDelegate? { return nil }
     
     private func buildService(_ methed: String, _ parameters: [Any]) -> SimpleService {
         var task: Task = .requestPlain
@@ -116,30 +119,35 @@ extension BaseService {
     
     // MARK: 处理异常
     private func handleFailure(error: Error, failure: @escaping(NetworkError)-> (), callback : @escaping () -> ()) {
+        let delegate = self.delegate
         do {
             try NetworkErrorGoalkeeper.profiling(error)
         } catch NetworkError.UNAUTHORIZE {
-            let queue = DispatchQueue(label: String.EMPTY)
-            queue.async {
-                self.handleUnauthorize(callback)
+            if (delegate != nil) {
+                let queue = DispatchQueue(label: String.EMPTY)
+                queue.async {
+                    delegate?.handleUnauthorize(callback)
+                }
+            } else {
+                failure(NetworkError.UNAUTHORIZE)
             }
         } catch NetworkError.DISCONNECTED {
-            self.handleDisconnected()
+            if (delegate != nil) {delegate?.handleDisconnected()}
             failure(NetworkError.DISCONNECTED)
         } catch NetworkError.BUSINESS_EXCEPTION(let messages) {
-            self.handleBusinessExcepion(messages: messages)
+            if (delegate != nil) {delegate?.handleBusinessExcepion(messages: messages)}
             failure(NetworkError.BUSINESS_EXCEPTION(messages))
         } catch NetworkError.NOT_FOUND  {
-            self.handleNotFound()
+            if (delegate != nil) {delegate?.handleNotFound()}
             failure(NetworkError.NOT_FOUND)
         } catch NetworkError.SERVER_EXCEPTION {
-            self.handleServiceException()
+            if (delegate != nil) {delegate?.handleServiceException()}
             failure(NetworkError.SERVER_EXCEPTION)
         } catch NetworkError.TIMEOUT {
-            self.handleTimeout()
+            if (delegate != nil) {delegate?.handleTimeout()}
             failure(NetworkError.TIMEOUT)
         } catch {
-            self.handleUnknown()
+            if (delegate != nil) {delegate?.handleUnknown()}
             failure(NetworkError.UNKNOWN)
         }
     }

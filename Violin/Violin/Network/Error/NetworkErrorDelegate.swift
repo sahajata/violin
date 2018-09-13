@@ -1,17 +1,17 @@
 //
-//  BaseNetworkErrorHandler.swift
+//  网络异常处理代理
 //  Violin
 //
 //  Created by liuzhiyi on 2018/9/10.
 //  Copyright © 2018年 Karma. All rights reserved.
 //
 
-public protocol BaseNetworkErrorHandler {
+public protocol NetworkErrorDelegate {
     
     // 处理未授权异常
     func handleUnauthorize(_ callback : @escaping () -> ())
     
-    // 处理服务器异常
+    // 处理服务器异常 
     func handleServiceException()
     
     // 处理网络未连接异常
