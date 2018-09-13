@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
-public class BaseTableViewController: UITableViewController, NetworkErrorDelegate {
+public class BaseTableViewController: UITableViewController {
+    
+}
+
+// MARK: NetworkErrorDelegate
+extension BaseTableViewController: NetworkErrorDelegate {
     
     public func handleUnauthorize(_ callback: @escaping () -> ()) {
     }
@@ -29,8 +35,12 @@ public class BaseTableViewController: UITableViewController, NetworkErrorDelegat
     }
     
     public func handleUnknown() {
+        
     }
-    
+}
 
+// MARK: DZNEmptyDataSet
+extension BaseTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
 }
 

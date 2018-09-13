@@ -2,8 +2,9 @@ PODS:
   - Alamofire (4.7.3)
   - DZNEmptyDataSet (1.8.1)
   - Hue (3.0.1)
+  - Kingfisher (4.9.0)
   - MBProgressHUD (1.1.0)
-  - MJRefresh (3.1.15.6)
+  - MJRefresh (3.1.15.7)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -13,20 +14,17 @@ PODS:
   - ObjectMapper (3.3.0)
   - Result (3.2.4)
   - RxSwift (4.2.0)
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
-  - SwiftDate (5.0.5)
+  - SwiftDate (5.0.7)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - DZNEmptyDataSet (~> 1.8)
   - Hue (~> 3.0)
+  - Kingfisher (~> 4.9)
   - MBProgressHUD (~> 1.1)
   - MJRefresh (~> 3.1)
   - Moya/RxSwift (~> 11.0)
   - ObjectMapper (~> 3.3)
-  - SDWebImage (~> 4.0)
   - SwiftDate (~> 5.0)
   - SwiftyJSON (~> 4.0)
 
@@ -35,13 +33,13 @@ SPEC REPOS:
     - Alamofire
     - DZNEmptyDataSet
     - Hue
+    - Kingfisher
     - MBProgressHUD
     - MJRefresh
     - Moya
     - ObjectMapper
     - Result
     - RxSwift
-    - SDWebImage
     - SwiftDate
     - SwiftyJSON
 
@@ -49,16 +47,16 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
+  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  SwiftDate: 963ed9f6d97e2de396d4ce73174185de04f9cdb6
+  SwiftDate: f053fb89250c59af5eff777f3b832d2b9dd57403
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: b39dd0e5c9ab9c081ad6d076dddca375d3f3c97d
+PODFILE CHECKSUM: 330ddd20798a2c33447e0040bd9e6984a1fc9e31
 
 COCOAPODS: 1.5.0

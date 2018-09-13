@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double ViolinVersionNumber;
 FOUNDATION_EXPORT const unsigned char ViolinVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Violin/PublicHeader.h>
-
-
