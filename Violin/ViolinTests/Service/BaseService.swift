@@ -10,8 +10,6 @@ import Violin
 
 public class BaseService: ViolinService {
     
-    public var serverUrl: String {return "http://192.168.1.152/lawyer/rpc/invoke"}
-    
-    public var beanId: String { return String.EMPTY }
+    override public var serverUrl: String {return "http://192.168.1.152/lawyer/rpc/invoke"}
     
 }

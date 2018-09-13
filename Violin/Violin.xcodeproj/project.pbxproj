@@ -16,7 +16,7 @@
 		F02E41CF21463D2A00EBF214 /* NetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41CE21463D2A00EBF214 /* NetworkErrorDelegate.swift */; };
 		F02E41D121463EF900EBF214 /* NetworkErrorGoalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D021463EF900EBF214 /* NetworkErrorGoalkeeper.swift */; };
 		F02E41D321463F7B00EBF214 /* NetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D221463F7B00EBF214 /* NetUtil.swift */; };
-		F02E41D6214641A700EBF214 /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D5214641A700EBF214 /* NetworkErrorHandler.swift */; };
+		F02E41D6214641A700EBF214 /* DefaultNetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */; };
 		F02E41D9214662D200EBF214 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D8214662D200EBF214 /* System.swift */; };
 		F02E41DB2146775700EBF214 /* TimeoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */; };
 		F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */; };
@@ -60,7 +60,7 @@
 		F02E41CE21463D2A00EBF214 /* NetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorDelegate.swift; sourceTree = "<group>"; };
 		F02E41D021463EF900EBF214 /* NetworkErrorGoalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorGoalkeeper.swift; sourceTree = "<group>"; };
 		F02E41D221463F7B00EBF214 /* NetUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUtil.swift; sourceTree = "<group>"; };
-		F02E41D5214641A700EBF214 /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
+		F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkErrorDelegate.swift; sourceTree = "<group>"; };
 		F02E41D8214662D200EBF214 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutPlugin.swift; sourceTree = "<group>"; };
 		F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinService.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		F02E41D42146419400EBF214 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F02E41D5214641A700EBF214 /* NetworkErrorHandler.swift */,
+				F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */,
 				F02E41D8214662D200EBF214 /* System.swift */,
 			);
 			path = Core;
@@ -490,7 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F02E41D6214641A700EBF214 /* NetworkErrorHandler.swift in Sources */,
+				F02E41D6214641A700EBF214 /* DefaultNetworkErrorDelegate.swift in Sources */,
 				F0BA2743212C040A00456FBE /* ViolinTests.swift in Sources */,
 				F0748BD121378EEA00299E1F /* ViewLawyer.swift in Sources */,
 				F02E41CD21463A9C00EBF214 /* MineService.swift in Sources */,

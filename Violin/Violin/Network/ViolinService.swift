@@ -11,17 +11,19 @@ import SwiftyJSON
 import ObjectMapper
 import RxSwift
 
-public protocol ViolinService {
+open class ViolinService {
     
-    var serverUrl: String { get }
+    public init() {}
+    
+    open var serverUrl: String {
+        return String.EMPTY
+    }
 
-    var beanId: String { get }
+    open var beanId: String {
+        return String.EMPTY
+    }
     
-}
-
-extension ViolinService {
-    
-    public var delegate: NetworkErrorDelegate? { return nil }
+    var delegate: NetworkErrorDelegate?
     
     private func buildService(_ methed: String, _ parameters: [Any]) -> SimpleService {
         var task: Task = .requestPlain
@@ -152,3 +154,5 @@ extension ViolinService {
         }
     }
 }
+
+

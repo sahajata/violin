@@ -9,5 +9,6 @@
 import Violin
 
 public class MineService: BaseService {
+    
     override public var beanId: String { return "mineController" }
 }

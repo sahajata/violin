@@ -26,6 +26,7 @@ class ViolinTests: XCTestCase {
         let expectations = expectation(description: String.EMPTY)
         
         let mineService: MineService = MineService()
+        mineService.delegate = DefaultNetworkErrorDelegate()
         mineService.request(methed: "perfectPassword", succeed: {(result: Bool) in
             debugPrint(result)
             expectations.fulfill()
