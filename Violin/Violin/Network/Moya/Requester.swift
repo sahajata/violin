@@ -33,8 +33,8 @@ public class Requester {
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
-                // TODO: 需将JSON解析成Array后返回
-                debugPrint(element)
+                let array: Array<T> = element as! Array<T>
+                succeed(array)
             case .error(let error):
                 self.error(error: error, failure: failure)
             }
@@ -76,9 +76,8 @@ public class Requester {
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
-                // TODO: 需将JSON解析成MAP后返回
-//                succeed(element)
-                debugPrint(element)
+                let dict: Dictionary<String, T> = element as! Dictionary<String, T>
+                succeed(dict)
             case .error(let error):
                 self.error(error: error, failure: failure)
             }

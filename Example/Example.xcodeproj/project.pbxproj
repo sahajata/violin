@@ -11,6 +11,7 @@
 		D3EB1603728BEE8FE31A2CB7 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F885E683EB4D3A1B46B58F76 /* Pods_ExampleTests.framework */; };
 		F04CD97A21507BAD00AAC877 /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97921507BAD00AAC877 /* ViewLawyer.swift */; };
 		F04CD9842150884000AAC877 /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD9832150883F00AAC877 /* SecondCell.swift */; };
+		F04CD9882150F77100AAC877 /* RuleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD9872150F77100AAC877 /* RuleService.swift */; };
 		F0C4C271214B450B00181071 /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C270214B450B00181071 /* SecondTableViewController.swift */; };
 		F0C4C273214B4BB000181071 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C272214B4BB000181071 /* SecondViewController.swift */; };
 		F0C75EF9214A642F00CBCBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EF8214A642F00CBCBA0 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		A3B3FF6EFBEC94C2CD564BD0 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		F04CD97921507BAD00AAC877 /* ViewLawyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
 		F04CD9832150883F00AAC877 /* SecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
+		F04CD9872150F77100AAC877 /* RuleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleService.swift; sourceTree = "<group>"; };
 		F0C4C270214B450B00181071 /* SecondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		F0C4C272214B4BB000181071 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F0C75EF5214A642F00CBCBA0 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 				F0C75F35214A6A6C00CBCBA0 /* BaseService.swift */,
 				F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */,
 				F0C75F34214A6A6C00CBCBA0 /* MineService.swift */,
+				F04CD9872150F77100AAC877 /* RuleService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				F0F2FABD214F890F00507527 /* LawyerCustomerParameter.swift in Sources */,
 				F04CD97A21507BAD00AAC877 /* ViewLawyer.swift in Sources */,
 				F0C75F3D214A6B0000CBCBA0 /* LoginService.swift in Sources */,
+				F04CD9882150F77100AAC877 /* RuleService.swift in Sources */,
 				F04CD9842150884000AAC877 /* SecondCell.swift in Sources */,
 				F0C75F3E214A6B0000CBCBA0 /* MineService.swift in Sources */,
 				F0F2FAB6214F58A100507527 /* BaseTableViewController.swift in Sources */,

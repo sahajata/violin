@@ -45,7 +45,7 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -61,7 +61,7 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -77,7 +77,7 @@ open class ViolinService {
     
     private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -93,7 +93,7 @@ open class ViolinService {
     
     private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -109,7 +109,7 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -125,7 +125,7 @@ open class ViolinService {
     
     private func request(methed: String, parameters: [Any], succeed: @escaping ()-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
-        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
