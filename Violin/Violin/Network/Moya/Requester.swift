@@ -33,6 +33,7 @@ public class Requester {
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
+                // TODO: 需将JSON解析成Array后返回
                 debugPrint(element)
             case .error(let error):
                 self.error(error: error, failure: failure)
@@ -75,7 +76,24 @@ public class Requester {
         let disposable: Disposable = provider.rx.request(service).mapJSON().subscribe{event in
             switch event {
             case .success(let element):
+                // TODO: 需将JSON解析成MAP后返回
+//                succeed(element)
                 debugPrint(element)
+            case .error(let error):
+                self.error(error: error, failure: failure)
+            }
+        }
+        return disposable
+    }
+    
+    // MARK: 无返回值
+    public static func request(service: SimpleService, succeed: @escaping ()-> (), failure: @escaping(Error)-> ()) -> Disposable {
+        let provider = MoyaProvider<SimpleService>(plugins: [TimeoutPlugin(), StatusCodeErrorPlugin()])
+        let disposable: Disposable = provider.rx.request(service).subscribe{event in
+            switch event {
+            case .success(let element):
+                debugPrint(element)
+                succeed()
             case .error(let error):
                 self.error(error: error, failure: failure)
             }

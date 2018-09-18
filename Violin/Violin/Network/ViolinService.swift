@@ -63,11 +63,7 @@ open class ViolinService {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
-                if (parameters.isEmpty) {
-                    self.request(methed: methed, succeed: succeed, failure: failure)
-                } else {
-                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
-                }
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
@@ -83,11 +79,7 @@ open class ViolinService {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
-                if (parameters.isEmpty) {
-                    self.request(methed: methed, succeed: succeed, failure: failure)
-                } else {
-                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
-                }
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
@@ -103,11 +95,7 @@ open class ViolinService {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
-                if (parameters.isEmpty) {
-                    self.request(methed: methed, succeed: succeed, failure: failure)
-                } else {
-                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
-                }
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
@@ -123,11 +111,23 @@ open class ViolinService {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
-                if (parameters.isEmpty) {
-                    self.request(methed: methed, succeed: succeed, failure: failure)
-                } else {
-                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
-                }
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
+        }
+        Requester.request(service: service, succeed: succeed, failure: failureBlock)
+    }
+    
+    // 无返回结果
+    public func request(methed: String, parameters: Any..., succeed: @escaping ()-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request(methed: String, parameters: [Any], succeed: @escaping ()-> (), failure: @escaping(NetworkError)-> ()) {
+        let service: SimpleService = buildService(methed, parameters)
+        let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
