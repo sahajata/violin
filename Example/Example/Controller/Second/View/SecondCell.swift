@@ -18,7 +18,7 @@ class SecondCell: UITableViewCell {
     public var model: ViewLawyerCustomer? {
         didSet {
             let url = URL(string: "http://192.168.1.152/\(model?.customer?.imageUrl ?? "")")
-            headImage.kf.setImage(with: url)
+            headImage.kf.setImage(with: url, placeholder: Image(named: "head_image"))
             name.text = model?.customer?.nickname
         }
     }
