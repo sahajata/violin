@@ -37,19 +37,12 @@ open class ViolinViewController: UIViewController, UIGestureRecognizerDelegate, 
     open func handleUnknown() {
         
     }
-}
-
-extension ViolinViewController {
-    public func toast(_ text: String){
+    
+    open func toast(_ text: String){
         let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .text
         hud.label.text = text
         hud.label.numberOfLines = 5
         hud.hide(animated: true, afterDelay: 2.0)
     }
-}
-
-// MARK: DZNEmptyDataSet
-extension ViolinViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
 }

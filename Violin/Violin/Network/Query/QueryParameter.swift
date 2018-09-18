@@ -16,7 +16,7 @@ open class QueryParameter: ViolinModel {
     public required init?(map: Map) {
     }
     
-    open var pageNo: Int = 0
+    open var pageNo: Int = 1
     
     open var pageSize: Int = 10
     

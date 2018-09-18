@@ -40,14 +40,14 @@ open class ViolinService {
     
     // MARK: 返回单个普通结果的泛型
     public func request<T>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request<T>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
-                if (parameters.isEmpty) {
-                    self.request(methed: methed, succeed: succeed, failure: failure)
-                } else {
-                    self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
-                }
+                self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
@@ -56,6 +56,10 @@ open class ViolinService {
     
     // MARK: 返回普通结果集合的泛型
     public func request<T>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request<T>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
@@ -72,6 +76,10 @@ open class ViolinService {
     
     // MARK: 返回单个实体结果的泛型
     public func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
@@ -88,6 +96,10 @@ open class ViolinService {
     
     // MARK: 返回实体结果集合的泛型
     public func request<T: BaseMappable>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
@@ -104,6 +116,10 @@ open class ViolinService {
     
     // 返回字典结果的泛型
     public func request<T>(methed: String, parameters: Any..., succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(NetworkError)-> ()) {
+        request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
+    }
+    
+    private func request<T>(methed: String, parameters: [Any], succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(NetworkError)-> ()) {
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in

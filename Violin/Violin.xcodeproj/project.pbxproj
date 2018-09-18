@@ -18,6 +18,7 @@
 		F02E41DB2146775700EBF214 /* TimeoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */; };
 		F04CD97221507A4800AAC877 /* ViolinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97121507A4800AAC877 /* ViolinModel.swift */; };
 		F04CD97F21507BF500AAC877 /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97E21507BF500AAC877 /* ViewLawyer.swift */; };
+		F04CD9862150DF3F00AAC877 /* ViolinSimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD9852150DF3F00AAC877 /* ViolinSimpleTableViewController.swift */; };
 		F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */; };
 		F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C2E212D4CFE0097E474 /* NetworkError.swift */; };
 		F0621C32212D5CD30097E474 /* SimpleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C31212D5CD30097E474 /* SimpleService.swift */; };
@@ -63,6 +64,7 @@
 		F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutPlugin.swift; sourceTree = "<group>"; };
 		F04CD97121507A4800AAC877 /* ViolinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinModel.swift; sourceTree = "<group>"; };
 		F04CD97E21507BF500AAC877 /* ViewLawyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
+		F04CD9852150DF3F00AAC877 /* ViolinSimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinSimpleTableViewController.swift; sourceTree = "<group>"; };
 		F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinService.swift; sourceTree = "<group>"; };
 		F0621C2E212D4CFE0097E474 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F0621C31212D5CD30097E474 /* SimpleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleService.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C75EE8214A12CF00CBCBA0 /* ViolinViewController.swift */,
+				F04CD9852150DF3F00AAC877 /* ViolinSimpleTableViewController.swift */,
 				F0C75EEA214A13CC00CBCBA0 /* ViolinTableViewController.swift */,
 			);
 			path = Controller;
@@ -476,6 +479,7 @@
 			files = (
 				F02E41D321463F7B00EBF214 /* NetUtil.swift in Sources */,
 				F02E41D121463EF900EBF214 /* NetworkErrorGoalkeeper.swift in Sources */,
+				F04CD9862150DF3F00AAC877 /* ViolinSimpleTableViewController.swift in Sources */,
 				F0C75EE9214A12CF00CBCBA0 /* ViolinViewController.swift in Sources */,
 				F0748BD321379C9F00299E1F /* ObservableType+ObjectMapper.swift in Sources */,
 				F0748BD82137C25300299E1F /* String+Extension.swift in Sources */,

@@ -13,8 +13,8 @@ public class JsonUtil {
     
     public static func toJson(object: Any) -> String {
         var jsonObject = object
-        if (object is BaseMappable){
-            jsonObject = (object as! Mappable).toJSON()
+        if (object is ViolinModel){
+            jsonObject = (object as! ViolinModel).toJSON()
         }
         let json = JSON(jsonObject)
         return json.rawString()!
@@ -23,7 +23,6 @@ public class JsonUtil {
     public static func toJson(array: [Any]) -> String {
         var jsonArray = Array<Any>()
         for object in array {
-            print(object_getClass(object))
             if (object is ViolinModel){
                 jsonArray.append((object as! ViolinModel).toJSON())
             } else {
@@ -37,8 +36,8 @@ public class JsonUtil {
     public static func toJson(dict: Dictionary<String, Any>) -> String {
         var jsonDict = Dictionary<String, Any>()
         for (key, object) in dict {
-            if (object is BaseMappable){
-                jsonDict[key] = (object as! Mappable).toJSON()
+            if (object is ViolinModel){
+                jsonDict[key] = (object as! ViolinModel).toJSON()
             } else {
                 jsonDict[key] = object
             }

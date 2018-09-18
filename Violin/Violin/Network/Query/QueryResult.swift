@@ -11,7 +11,7 @@ import ObjectMapper
 public class QueryResult<R: ViolinModel>: ViolinModel {
     
     // 结果记录集
-    open var records: Array<R>?
+    open var records: Array<R> = []
     
     // 分页信息
     open var paging: Paging?

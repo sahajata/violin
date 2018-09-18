@@ -11,28 +11,41 @@ import DZNEmptyDataSet
 import MJRefresh
 import ObjectMapper
 
-open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, NetworkErrorDelegate {
+open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinSimpleTableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
+    private var queryParmeter: Q!
+    
     // 查询参数
-    open var queryParmeter: Q!
+    open func getQueryParmeter() -> Q {
+        if (queryParmeter == nil) {
+            queryParmeter = Q()
+        }
+        return queryParmeter
+    }
     
     // 查询结果
-    open var dataSource: QueryResult<R>! {
-        didSet {
-            if (dataSource != nil && dataSource?.records != nil) {
-                header.isHidden = false
-                footer.isHidden = false
-            } else {
-                header.isHidden = true
-                footer.isHidden = true
-            }
-            self.tableView.reloadData()
+    open var dataSource: QueryResult<R> = QueryResult<R>()
+    
+    open func setDataSource(dataSource: QueryResult<R>) {
+        header.endRefreshing()
+        self.dataSource.paging = dataSource.paging
+        self.dataSource.records += dataSource.records
+        let isNotEmpty: Bool = dataSource.records.count > 0
+        header.isHidden = !isNotEmpty
+        footer.isHidden = !isNotEmpty
+            
+        if (isNotEmpty && (dataSource.paging?.morePage)!) {
+            footer.resetNoMoreData()
+            footer.endRefreshing()
+        } else {
+            footer.endRefreshingWithNoMoreData()
         }
+        self.tableView.reloadData()
     }
     
     open override func viewDidLoad() {
@@ -57,63 +70,19 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: UITable
     }
     
     @objc func headerRefresh() {
-        print("下拉刷新")
-        queryParmeter?.pageNo = 0
+        dataSource = QueryResult<R>()
+        getQueryParmeter().pageNo = 1
         loadData()
     }
     
     @objc func footerRefresh() {
-        print("上拉加载更多")
-        queryParmeter?.pageNo += 1
+        getQueryParmeter().pageNo += 1
         loadData()
     }
     
-    // MARK: NetworkErrorDelegate
-    open func handleUnauthorize(_ callback: @escaping () -> ()) {
-    }
-    
-    open func handleServiceException() {
-    }
-    
-    open func handleDisconnected() {
-    }
-    
-    open func handleNotFound() {
-    }
-    
-    open func handleBusinessExcepion(messages: Dictionary<String, String>) {
-    }
-    
-    open func handleTimeout() {
-    }
-    
-    open func handleUnknown() {
-        
-    }
-    
     // MARK: UITableViewController
-    override open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-    
-    override open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-    
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource?.records?.count ?? 0
-    }
-    
-    override open func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        return dataSource.records.count
     }
     
     // MARK: DZNEmptyDataSet
@@ -121,9 +90,17 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: UITable
         let text = "没有数据";
         return NSAttributedString(string: text, attributes: nil)
     }
+    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        let text = "重新加载";
+        return NSAttributedString(string: text, attributes: nil)
+    }
     
     public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return true
+    }
+    
+    open func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        loadData()
     }
     
 }
