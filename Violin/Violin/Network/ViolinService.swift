@@ -13,7 +13,7 @@ import RxSwift
 
 open class ViolinService {
     
-    public init() {}
+    public required init() {}
     
     open var serverUrl: String {
         return String.EMPTY
@@ -29,7 +29,7 @@ open class ViolinService {
         var task: Task = .requestPlain
         if (!parameters.isEmpty) {
             let encoding = URLEncoding(destination: .methodDependent, arrayEncoding: .noBrackets, boolEncoding: .literal)
-            let json = JsonUtil.toJson(parameters).removeSpecialCharacters()
+            let json = JsonUtil.toJson(array: parameters).removeSpecialCharacters()
             let args = ["args": json]
             task = .requestParameters(parameters: args, encoding: encoding)
         }
@@ -56,7 +56,6 @@ open class ViolinService {
     
     // MARK: 返回普通结果集合的泛型
     public func request<T>(methed: String, parameters: Any..., succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
-        print(2)
         let service: SimpleService = buildService(methed, parameters)
         let failureBlock = {(error: Error) in // TODO: 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in

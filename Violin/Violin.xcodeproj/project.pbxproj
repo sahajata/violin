@@ -12,20 +12,17 @@
 		F002410F212E8C4F00689AF0 /* StatusCodeErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002410E212E8C4F00689AF0 /* StatusCodeErrorPlugin.swift */; };
 		F02E41C821461EDF00EBF214 /* QueryParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41C721461EDF00EBF214 /* QueryParameter.swift */; };
 		F02E41CB2146387700EBF214 /* FieldOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41CA2146387700EBF214 /* FieldOrder.swift */; };
-		F02E41CD21463A9C00EBF214 /* MineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41CC21463A9C00EBF214 /* MineService.swift */; };
 		F02E41CF21463D2A00EBF214 /* NetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41CE21463D2A00EBF214 /* NetworkErrorDelegate.swift */; };
 		F02E41D121463EF900EBF214 /* NetworkErrorGoalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D021463EF900EBF214 /* NetworkErrorGoalkeeper.swift */; };
 		F02E41D321463F7B00EBF214 /* NetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D221463F7B00EBF214 /* NetUtil.swift */; };
-		F02E41D6214641A700EBF214 /* DefaultNetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */; };
-		F02E41D9214662D200EBF214 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41D8214662D200EBF214 /* System.swift */; };
 		F02E41DB2146775700EBF214 /* TimeoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */; };
+		F04CD97221507A4800AAC877 /* ViolinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97121507A4800AAC877 /* ViolinModel.swift */; };
+		F04CD97F21507BF500AAC877 /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97E21507BF500AAC877 /* ViewLawyer.swift */; };
 		F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */; };
 		F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C2E212D4CFE0097E474 /* NetworkError.swift */; };
 		F0621C32212D5CD30097E474 /* SimpleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C31212D5CD30097E474 /* SimpleService.swift */; };
 		F074749D2142112F00DE8302 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074749C2142112F00DE8302 /* JsonUtil.swift */; };
-		F07474A021421AED00DE8302 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074749F21421AED00DE8302 /* LoginService.swift */; };
 		F0748BCE21377E8900299E1F /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0748BCD21377E8900299E1F /* Response+ObjectMapper.swift */; };
-		F0748BD121378EEA00299E1F /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0748BD021378EEA00299E1F /* ViewLawyer.swift */; };
 		F0748BD321379C9F00299E1F /* ObservableType+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0748BD221379C9F00299E1F /* ObservableType+ObjectMapper.swift */; };
 		F0748BD521379D0100299E1F /* Single+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0748BD421379D0100299E1F /* Single+ObjectMapper.swift */; };
 		F0748BD82137C25300299E1F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0748BD72137C25300299E1F /* String+Extension.swift */; };
@@ -33,9 +30,11 @@
 		F0BA2743212C040A00456FBE /* ViolinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA2742212C040A00456FBE /* ViolinTests.swift */; };
 		F0BA2745212C040A00456FBE /* Violin.h in Headers */ = {isa = PBXBuildFile; fileRef = F0BA2737212C040A00456FBE /* Violin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0BA2750212C04C200456FBE /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA274F212C04C200456FBE /* Requester.swift */; };
-		F0C75EE7214A074900CBCBA0 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EE6214A074900CBCBA0 /* BaseService.swift */; };
+		F0C4C275214B74C200181071 /* ViolinServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C274214B74C200181071 /* ViolinServiceManager.swift */; };
 		F0C75EE9214A12CF00CBCBA0 /* ViolinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EE8214A12CF00CBCBA0 /* ViolinViewController.swift */; };
 		F0C75EEB214A13CC00CBCBA0 /* ViolinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EEA214A13CC00CBCBA0 /* ViolinTableViewController.swift */; };
+		F0F2FAAE214F4F2C00507527 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2FAAD214F4F2C00507527 /* QueryResult.swift */; };
+		F0F2FAB0214F52C100507527 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2FAAF214F52C100507527 /* Paging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,20 +57,17 @@
 		F002410E212E8C4F00689AF0 /* StatusCodeErrorPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeErrorPlugin.swift; sourceTree = "<group>"; };
 		F02E41C721461EDF00EBF214 /* QueryParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryParameter.swift; sourceTree = "<group>"; };
 		F02E41CA2146387700EBF214 /* FieldOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldOrder.swift; sourceTree = "<group>"; };
-		F02E41CC21463A9C00EBF214 /* MineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineService.swift; sourceTree = "<group>"; };
 		F02E41CE21463D2A00EBF214 /* NetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorDelegate.swift; sourceTree = "<group>"; };
 		F02E41D021463EF900EBF214 /* NetworkErrorGoalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorGoalkeeper.swift; sourceTree = "<group>"; };
 		F02E41D221463F7B00EBF214 /* NetUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUtil.swift; sourceTree = "<group>"; };
-		F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkErrorDelegate.swift; sourceTree = "<group>"; };
-		F02E41D8214662D200EBF214 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutPlugin.swift; sourceTree = "<group>"; };
+		F04CD97121507A4800AAC877 /* ViolinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinModel.swift; sourceTree = "<group>"; };
+		F04CD97E21507BF500AAC877 /* ViewLawyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
 		F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinService.swift; sourceTree = "<group>"; };
 		F0621C2E212D4CFE0097E474 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F0621C31212D5CD30097E474 /* SimpleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleService.swift; sourceTree = "<group>"; };
 		F074749C2142112F00DE8302 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
-		F074749F21421AED00DE8302 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F0748BCD21377E8900299E1F /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
-		F0748BD021378EEA00299E1F /* ViewLawyer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
 		F0748BD221379C9F00299E1F /* ObservableType+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+ObjectMapper.swift"; sourceTree = "<group>"; };
 		F0748BD421379D0100299E1F /* Single+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+ObjectMapper.swift"; sourceTree = "<group>"; };
 		F0748BD72137C25300299E1F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -82,9 +78,11 @@
 		F0BA2742212C040A00456FBE /* ViolinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinTests.swift; sourceTree = "<group>"; };
 		F0BA2744212C040A00456FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0BA274F212C04C200456FBE /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
-		F0C75EE6214A074900CBCBA0 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		F0C4C274214B74C200181071 /* ViolinServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinServiceManager.swift; sourceTree = "<group>"; };
 		F0C75EE8214A12CF00CBCBA0 /* ViolinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinViewController.swift; sourceTree = "<group>"; };
 		F0C75EEA214A13CC00CBCBA0 /* ViolinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinTableViewController.swift; sourceTree = "<group>"; };
+		F0F2FAAD214F4F2C00507527 /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
+		F0F2FAAF214F52C100507527 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,18 +140,26 @@
 			children = (
 				F02E41C721461EDF00EBF214 /* QueryParameter.swift */,
 				F02E41CA2146387700EBF214 /* FieldOrder.swift */,
+				F0F2FAAD214F4F2C00507527 /* QueryResult.swift */,
+				F0F2FAAF214F52C100507527 /* Paging.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
 		};
-		F02E41D42146419400EBF214 /* Core */ = {
+		F04CD97021507A0700AAC877 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F02E41D5214641A700EBF214 /* DefaultNetworkErrorDelegate.swift */,
-				F02E41D8214662D200EBF214 /* System.swift */,
+				F04CD97121507A4800AAC877 /* ViolinModel.swift */,
 			);
-			name = Core;
-			path = ../../Example/Example/Core;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F04CD97D21507BED00AAC877 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F04CD97E21507BF500AAC877 /* ViewLawyer.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F0621C2D212D4C9A0097E474 /* Error */ = {
@@ -186,17 +192,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		F074749E21421AD000DE8302 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				F074749F21421AED00DE8302 /* LoginService.swift */,
-				F02E41CC21463A9C00EBF214 /* MineService.swift */,
-				F0C75EE6214A074900CBCBA0 /* BaseService.swift */,
-			);
-			name = Service;
-			path = ../../Example/Example/Service;
-			sourceTree = "<group>";
-		};
 		F0748BCC21377D5E00299E1F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,15 +200,6 @@
 				F0748BD421379D0100299E1F /* Single+ObjectMapper.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		F0748BCF21378EA100299E1F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F0748BD021378EEA00299E1F /* ViewLawyer.swift */,
-			);
-			name = Model;
-			path = ../../Example/Example/Model;
 			sourceTree = "<group>";
 		};
 		F0748BD62137C24400299E1F /* Core */ = {
@@ -255,10 +241,11 @@
 		F0BA2736212C040A00456FBE /* Violin */ = {
 			isa = PBXGroup;
 			children = (
-				F0C75EE52149F78B00CBCBA0 /* Controller */,
-				F074749B2142111500DE8302 /* Util */,
 				F0748BD62137C24400299E1F /* Core */,
+				F074749B2142111500DE8302 /* Util */,
 				F0BA274E212C049800456FBE /* Network */,
+				F04CD97021507A0700AAC877 /* Model */,
+				F0C75EE52149F78B00CBCBA0 /* Controller */,
 				F0BA2737212C040A00456FBE /* Violin.h */,
 				F0BA2738212C040A00456FBE /* Info.plist */,
 			);
@@ -268,9 +255,7 @@
 		F0BA2741212C040A00456FBE /* ViolinTests */ = {
 			isa = PBXGroup;
 			children = (
-				F0748BCF21378EA100299E1F /* Model */,
-				F02E41D42146419400EBF214 /* Core */,
-				F074749E21421AD000DE8302 /* Service */,
+				F04CD97D21507BED00AAC877 /* Model */,
 				F0BA2742212C040A00456FBE /* ViolinTests.swift */,
 				F0BA2744212C040A00456FBE /* Info.plist */,
 			);
@@ -284,6 +269,7 @@
 				F02E41C921461F7400EBF214 /* Query */,
 				F0621C2D212D4C9A0097E474 /* Error */,
 				F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */,
+				F0C4C274214B74C200181071 /* ViolinServiceManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -493,17 +479,21 @@
 				F0C75EE9214A12CF00CBCBA0 /* ViolinViewController.swift in Sources */,
 				F0748BD321379C9F00299E1F /* ObservableType+ObjectMapper.swift in Sources */,
 				F0748BD82137C25300299E1F /* String+Extension.swift in Sources */,
+				F0F2FAAE214F4F2C00507527 /* QueryResult.swift in Sources */,
 				F02E41DB2146775700EBF214 /* TimeoutPlugin.swift in Sources */,
 				F0C75EEB214A13CC00CBCBA0 /* ViolinTableViewController.swift in Sources */,
 				F02E41C821461EDF00EBF214 /* QueryParameter.swift in Sources */,
 				F0748BCE21377E8900299E1F /* Response+ObjectMapper.swift in Sources */,
+				F04CD97221507A4800AAC877 /* ViolinModel.swift in Sources */,
 				F0621C32212D5CD30097E474 /* SimpleService.swift in Sources */,
 				F074749D2142112F00DE8302 /* JsonUtil.swift in Sources */,
 				F0BA2750212C04C200456FBE /* Requester.swift in Sources */,
 				F002410F212E8C4F00689AF0 /* StatusCodeErrorPlugin.swift in Sources */,
+				F0C4C275214B74C200181071 /* ViolinServiceManager.swift in Sources */,
 				F0748BD521379D0100299E1F /* Single+ObjectMapper.swift in Sources */,
 				F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */,
 				F02E41CF21463D2A00EBF214 /* NetworkErrorDelegate.swift in Sources */,
+				F0F2FAB0214F52C100507527 /* Paging.swift in Sources */,
 				F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */,
 				F02E41CB2146387700EBF214 /* FieldOrder.swift in Sources */,
 			);
@@ -513,13 +503,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F02E41D6214641A700EBF214 /* DefaultNetworkErrorDelegate.swift in Sources */,
 				F0BA2743212C040A00456FBE /* ViolinTests.swift in Sources */,
-				F0748BD121378EEA00299E1F /* ViewLawyer.swift in Sources */,
-				F02E41CD21463A9C00EBF214 /* MineService.swift in Sources */,
-				F0C75EE7214A074900CBCBA0 /* BaseService.swift in Sources */,
-				F02E41D9214662D200EBF214 /* System.swift in Sources */,
-				F07474A021421AED00DE8302 /* LoginService.swift in Sources */,
+				F04CD97F21507BF500AAC877 /* ViewLawyer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

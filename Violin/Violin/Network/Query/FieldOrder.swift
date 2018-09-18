@@ -8,7 +8,9 @@
 
 public struct FieldOrder {
     
+    // 排序字段名称
     var name: String
     
+    // 降序true、升序false
     var desc: Bool
 }
