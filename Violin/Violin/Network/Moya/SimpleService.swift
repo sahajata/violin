@@ -15,10 +15,10 @@ public struct SimpleService : TargetType {
     
     public var method: Moya.Method
     
-    public var sampleData: Data {return "".data(using: String.DEFAULT_ENCODING)!}
+    public var sampleData: Data {return String.EMPTY.data(using: String.DEFAULT_ENCODING)!}
     
     public var task: Task
     
-    public var headers: [String : String]?
+    public var headers: [String : String]? {return ["Accept-Language": LocaleUtil.getCurrent()]}
     
 }

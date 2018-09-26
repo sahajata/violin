@@ -11,6 +11,4 @@ import Violin
 public class LoginService: BaseService {
     
     override public var beanId: String { return "loginController" }
-    
-    
 }

@@ -20,6 +20,7 @@
 		F04CD97F21507BF500AAC877 /* ViewLawyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD97E21507BF500AAC877 /* ViewLawyer.swift */; };
 		F04CD9862150DF3F00AAC877 /* ViolinSimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD9852150DF3F00AAC877 /* ViolinSimpleTableViewController.swift */; };
 		F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */; };
+		F05B97A3215B0A1A006F6971 /* LocaleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B97A2215B0A1A006F6971 /* LocaleUtil.swift */; };
 		F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C2E212D4CFE0097E474 /* NetworkError.swift */; };
 		F0621C32212D5CD30097E474 /* SimpleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0621C31212D5CD30097E474 /* SimpleService.swift */; };
 		F074749D2142112F00DE8302 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074749C2142112F00DE8302 /* JsonUtil.swift */; };
@@ -34,6 +35,7 @@
 		F0C4C275214B74C200181071 /* ViolinServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C274214B74C200181071 /* ViolinServiceManager.swift */; };
 		F0C75EE9214A12CF00CBCBA0 /* ViolinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EE8214A12CF00CBCBA0 /* ViolinViewController.swift */; };
 		F0C75EEB214A13CC00CBCBA0 /* ViolinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75EEA214A13CC00CBCBA0 /* ViolinTableViewController.swift */; };
+		F0C9E6C721523C39004AA178 /* HeaderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C9E6C621523C39004AA178 /* HeaderPlugin.swift */; };
 		F0F2FAAE214F4F2C00507527 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2FAAD214F4F2C00507527 /* QueryResult.swift */; };
 		F0F2FAB0214F52C100507527 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2FAAF214F52C100507527 /* Paging.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,7 @@
 		F04CD97E21507BF500AAC877 /* ViewLawyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLawyer.swift; sourceTree = "<group>"; };
 		F04CD9852150DF3F00AAC877 /* ViolinSimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinSimpleTableViewController.swift; sourceTree = "<group>"; };
 		F04F3EDD21351D9B00EA4B66 /* ViolinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinService.swift; sourceTree = "<group>"; };
+		F05B97A2215B0A1A006F6971 /* LocaleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleUtil.swift; sourceTree = "<group>"; };
 		F0621C2E212D4CFE0097E474 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F0621C31212D5CD30097E474 /* SimpleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleService.swift; sourceTree = "<group>"; };
 		F074749C2142112F00DE8302 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		F0C4C274214B74C200181071 /* ViolinServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinServiceManager.swift; sourceTree = "<group>"; };
 		F0C75EE8214A12CF00CBCBA0 /* ViolinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinViewController.swift; sourceTree = "<group>"; };
 		F0C75EEA214A13CC00CBCBA0 /* ViolinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolinTableViewController.swift; sourceTree = "<group>"; };
+		F0C9E6C621523C39004AA178 /* HeaderPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPlugin.swift; sourceTree = "<group>"; };
 		F0F2FAAD214F4F2C00507527 /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
 		F0F2FAAF214F52C100507527 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +137,7 @@
 			children = (
 				F002410E212E8C4F00689AF0 /* StatusCodeErrorPlugin.swift */,
 				F02E41DA2146775600EBF214 /* TimeoutPlugin.swift */,
+				F0C9E6C621523C39004AA178 /* HeaderPlugin.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			children = (
 				F074749C2142112F00DE8302 /* JsonUtil.swift */,
 				F02E41D221463F7B00EBF214 /* NetUtil.swift */,
+				F05B97A2215B0A1A006F6971 /* LocaleUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				F04CD9862150DF3F00AAC877 /* ViolinSimpleTableViewController.swift in Sources */,
 				F0C75EE9214A12CF00CBCBA0 /* ViolinViewController.swift in Sources */,
 				F0748BD321379C9F00299E1F /* ObservableType+ObjectMapper.swift in Sources */,
+				F0C9E6C721523C39004AA178 /* HeaderPlugin.swift in Sources */,
 				F0748BD82137C25300299E1F /* String+Extension.swift in Sources */,
 				F0F2FAAE214F4F2C00507527 /* QueryResult.swift in Sources */,
 				F02E41DB2146775700EBF214 /* TimeoutPlugin.swift in Sources */,
@@ -497,6 +504,7 @@
 				F0748BD521379D0100299E1F /* Single+ObjectMapper.swift in Sources */,
 				F04F3EDE21351D9B00EA4B66 /* ViolinService.swift in Sources */,
 				F02E41CF21463D2A00EBF214 /* NetworkErrorDelegate.swift in Sources */,
+				F05B97A3215B0A1A006F6971 /* LocaleUtil.swift in Sources */,
 				F0F2FAB0214F52C100507527 /* Paging.swift in Sources */,
 				F0621C2F212D4CFE0097E474 /* NetworkError.swift in Sources */,
 				F02E41CB2146387700EBF214 /* FieldOrder.swift in Sources */,

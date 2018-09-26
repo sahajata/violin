@@ -22,5 +22,4 @@ class SecondCell: UITableViewCell {
             name.text = model?.customer?.nickname
         }
     }
-    
 }

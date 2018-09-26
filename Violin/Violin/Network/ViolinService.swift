@@ -34,7 +34,7 @@ open class ViolinService {
             task = .requestParameters(parameters: args, encoding: encoding)
         }
         
-        let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task, headers: nil);
+        let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
         return service
     }
     

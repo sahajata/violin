@@ -16,6 +16,19 @@ class FirstViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let userDefault = UserDefaults.standard
+//        let dict: Dictionary<String, String> = ["name": "test", "age": "16"]
+//        userDefault.set(dict, forKey: "test")
+//        print(userDefault.dictionary(forKey: "test"))
+//        
+//        let acceptLanguage = Locale.preferredLanguages.prefix(6).enumerated().map { index, languageCode in
+//            let quality = 1.0 - (Double(index) * 0.1)
+//            return "\(languageCode);q=\(quality)"
+//            }.joined(separator: ", ")
+//        
+//        print(acceptLanguage)
+        
+        
 //        mineService = ViolinServiceManager.create(type: MineService.self, delegate: self)
 //        mineService.request(methed: "getDetail", succeed: {(lawyer: ViewLawyer) in
 //            self.toast("当前登录账号的姓名是：\(lawyer.realname!)")
@@ -28,7 +41,6 @@ class FirstViewController: BaseViewController {
         }, failure: {(error: NetworkError) in
             print("failure")
         })
-        
     }
 
     override func didReceiveMemoryWarning() {

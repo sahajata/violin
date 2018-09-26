@@ -21,7 +21,6 @@
 		F0C75F03214A643100CBCBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75F01214A643100CBCBA0 /* LaunchScreen.storyboard */; };
 		F0C75F0E214A643200CBCBA0 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F0D214A643200CBCBA0 /* ExampleTests.swift */; };
 		F0C75F19214A643200CBCBA0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F18214A643200CBCBA0 /* ExampleUITests.swift */; };
-		F0C75F3B214A6B0000CBCBA0 /* DefaultNetworkErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */; };
 		F0C75F3C214A6B0000CBCBA0 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F38214A6A6D00CBCBA0 /* System.swift */; };
 		F0C75F3D214A6B0000CBCBA0 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */; };
 		F0C75F3E214A6B0000CBCBA0 /* MineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75F34214A6A6C00CBCBA0 /* MineService.swift */; };
@@ -77,7 +76,6 @@
 		F0C75F33214A6A6C00CBCBA0 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F0C75F34214A6A6C00CBCBA0 /* MineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineService.swift; sourceTree = "<group>"; };
 		F0C75F35214A6A6C00CBCBA0 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
-		F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkErrorDelegate.swift; sourceTree = "<group>"; };
 		F0C75F38214A6A6D00CBCBA0 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		F0F2FAB3214F588100507527 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F0F2FAB5214F58A100507527 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 		F0C75F39214A6A6D00CBCBA0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F0C75F37214A6A6D00CBCBA0 /* DefaultNetworkErrorDelegate.swift */,
 				F0C75F38214A6A6D00CBCBA0 /* System.swift */,
 			);
 			path = Core;
@@ -479,7 +476,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0C75F3B214A6B0000CBCBA0 /* DefaultNetworkErrorDelegate.swift in Sources */,
 				F0F2FABA214F87A200507527 /* ViewCustomer.swift in Sources */,
 				F0F2FAB4214F588100507527 /* BaseViewController.swift in Sources */,
 				F0C75F3C214A6B0000CBCBA0 /* System.swift in Sources */,

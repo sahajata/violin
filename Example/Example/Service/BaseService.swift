@@ -11,5 +11,4 @@ import Violin
 public class BaseService: ViolinService {
     
     override public var serverUrl: String {return "http://192.168.1.152/lawyer/rpc/invoke"}
-    
 }

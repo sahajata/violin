@@ -85,14 +85,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vSb-jR-583" userLabel="HeadImage">
-                                            <rect key="frame" x="16" y="-9" width="60" height="60"/>
+                                            <rect key="frame" x="16" y="10" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="XBC-sR-MUL"/>
                                                 <constraint firstAttribute="width" constant="60" id="dac-h8-DBI"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzn-ee-jYn" userLabel="Name">
-                                            <rect key="frame" x="92" y="11" width="30" height="21"/>
+                                            <rect key="frame" x="92" y="29.5" width="30" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -102,6 +102,7 @@
                                         <constraint firstItem="Gzn-ee-jYn" firstAttribute="leading" secondItem="vSb-jR-583" secondAttribute="trailing" constant="16" id="Rn0-AY-qeo"/>
                                         <constraint firstItem="vSb-jR-583" firstAttribute="centerY" secondItem="Mkk-Bn-RV5" secondAttribute="centerY" id="T5h-mn-cW7"/>
                                         <constraint firstItem="vSb-jR-583" firstAttribute="leading" secondItem="Mkk-Bn-RV5" secondAttribute="leadingMargin" id="dKu-oV-frh"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gzn-ee-jYn" secondAttribute="trailing" constant="20" symbolic="YES" id="dsR-BX-82J"/>
                                         <constraint firstItem="Gzn-ee-jYn" firstAttribute="centerY" secondItem="Mkk-Bn-RV5" secondAttribute="centerY" id="fTG-vN-Xp3"/>
                                     </constraints>
                                 </tableViewCellContentView>
