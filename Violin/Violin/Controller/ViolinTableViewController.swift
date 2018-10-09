@@ -90,7 +90,7 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         let text = "没有数据";
         return NSAttributedString(string: text, attributes: nil)
     }
-    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         let text = "重新加载";
         return NSAttributedString(string: text, attributes: nil)
     }
