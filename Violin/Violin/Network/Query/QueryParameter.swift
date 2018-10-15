@@ -29,6 +29,7 @@ open class QueryParameter: ViolinModel {
         pageNo <- map["pageNo"]
         pageSize <- map["pageSize"]
         totalable <- map["totalable"]
+        fieldOrders <- map["fieldOrders"]
     }
     
     public func addOrder(name: String, desc: Bool) {
