@@ -86,16 +86,16 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
     }
     
     // MARK: DZNEmptyDataSet
-    public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = "没有数据";
         return NSAttributedString(string: text, attributes: nil)
     }
-    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+    open func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         let text = "重新加载";
         return NSAttributedString(string: text, attributes: nil)
     }
     
-    public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    open func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
     

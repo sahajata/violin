@@ -13,8 +13,6 @@ struct HeaderPlugin: PluginType {
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var mRequest = request
-        print(mRequest.allHTTPHeaderFields)
-//        mRequest.allHTTPHeaderFields["test"] = "aaaa"
         return mRequest
     }
 }

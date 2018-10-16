@@ -25,6 +25,37 @@ open class ViolinService {
     
     open var delegate: NetworkErrorDelegate?
     
+    public func upload(methed: String, file: Data, name: String, succeed: @escaping (UploadResult)-> (), failure: @escaping(NetworkError)-> ()) {
+        let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name)
+        let task: Task = .uploadMultipart([data])
+        let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
+        
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                self.upload(methed: methed, file: file, name: name, succeed: succeed, failure: failure)
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
+        }
+        Requester.request(service: service, succeed: succeed, failure: failureBlock)
+    }
+    
+    public func upload(methed: String, files: Dictionary<String, Data>, succeed: @escaping ([UploadResult])-> (), failure: @escaping(NetworkError)-> ()) {
+        var data = [MultipartFormData]()
+        for (name,file) in files {
+            data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name))
+        }
+        let task: Task = .uploadMultipart(data)
+        let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
+        
+        let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
+            let callbackBlock = {() in
+                self.upload(methed: methed, files: files, succeed: succeed, failure: failure)
+            }
+            self.handleFailure(error: error, failure: failure, callback: callbackBlock)
+        }
+        Requester.request(service: service, succeed: succeed, failure: failureBlock)
+    }
+    
     private func buildService(_ methed: String, _ parameters: [Any]) -> SimpleService {
         var task: Task = .requestPlain
         if (!parameters.isEmpty) {
