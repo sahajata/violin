@@ -80,11 +80,6 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         loadData()
     }
     
-    // MARK: UITableViewController
-    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.records.count
-    }
-    
     // MARK: DZNEmptyDataSet
     open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = "没有数据";

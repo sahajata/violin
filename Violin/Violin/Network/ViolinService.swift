@@ -26,9 +26,13 @@ open class ViolinService {
     open var delegate: NetworkErrorDelegate?
     
     public func upload(methed: String, file: Data, name: String, succeed: @escaping (UploadResult)-> (), failure: @escaping(NetworkError)-> ()) {
-        let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name)
+        let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name, mimeType: "image/png")
         let task: Task = .uploadMultipart([data])
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
+        
+        let succeedBlock = {(result: [UploadResult]) in
+            succeed(result[0])
+        }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
             let callbackBlock = {() in
@@ -36,13 +40,13 @@ open class ViolinService {
             }
             self.handleFailure(error: error, failure: failure, callback: callbackBlock)
         }
-        Requester.request(service: service, succeed: succeed, failure: failureBlock)
+        Requester.request(service: service, succeed: succeedBlock, failure: failureBlock)
     }
     
     public func upload(methed: String, files: Dictionary<String, Data>, succeed: @escaping ([UploadResult])-> (), failure: @escaping(NetworkError)-> ()) {
         var data = [MultipartFormData]()
         for (name,file) in files {
-            data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name))
+            data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name, mimeType: "image/png"))
         }
         let task: Task = .uploadMultipart(data)
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
