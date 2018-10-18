@@ -26,7 +26,7 @@ open class ViolinService {
     open var delegate: NetworkErrorDelegate?
     
     public func upload(methed: String, file: Data, name: String, succeed: @escaping (UploadResult)-> (), failure: @escaping(NetworkError)-> ()) {
-        let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name, mimeType: "image/png")
+        let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: "file", fileName: name, mimeType: "image/png")
         let task: Task = .uploadMultipart([data])
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
         
@@ -46,7 +46,7 @@ open class ViolinService {
     public func upload(methed: String, files: Dictionary<String, Data>, succeed: @escaping ([UploadResult])-> (), failure: @escaping(NetworkError)-> ()) {
         var data = [MultipartFormData]()
         for (name,file) in files {
-            data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: name, mimeType: "image/png"))
+            data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: "file", fileName: name, mimeType: "image/png"))
         }
         let task: Task = .uploadMultipart(data)
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
