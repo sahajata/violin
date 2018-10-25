@@ -120,15 +120,14 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         return super.title(forEmptyDataSet: scrollView)
     }
     open override func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
-        return super.buttonTitle(forEmptyDataSet: forEmptyDataSet, for: state)
+        return super.buttonTitle(forEmptyDataSet: scrollView, for: state)
     }
     
     open override func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return super.emptyDataSetShouldDisplay(scrollView)
     }
     
-    open override func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        super.emptyDataSet(scrollView, didTap: button)
+    open func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         headerRefresh()
     }
 }

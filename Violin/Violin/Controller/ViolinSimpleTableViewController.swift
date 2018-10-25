@@ -53,8 +53,6 @@ open class ViolinSimpleTableViewController: UITableViewController, UIGestureReco
         return true
     }
     
-    open func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-    }
     
 }
 
