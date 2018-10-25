@@ -48,6 +48,16 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         self.tableView.reloadData()
     }
     
+    open func setEmptyDataSource() {
+        self.dataSource.paging = Paging()
+        self.dataSource.records = []
+        header.isHidden = true
+        footer.isHidden = true
+        footer.resetNoMoreData()
+        footer.endRefreshing()
+        self.tableView.reloadData()
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,22 +90,45 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         loadData()
     }
     
+    open override func handleServiceException() {
+        super.handleServiceException()
+        setEmptyDataSource()
+    }
+    
+    open override func handleDisconnected() {
+        super.handleServiceException()
+        setEmptyDataSource()
+    }
+    
+    open override func handleNotFound() {
+        super.handleServiceException()
+        setEmptyDataSource()
+    }
+    
+    open override func handleTimeout() {
+        super.handleServiceException()
+        setEmptyDataSource()
+    }
+    
+    open override func handleUnknown() {
+        super.handleServiceException()
+        setEmptyDataSource()
+    }
+    
     // MARK: DZNEmptyDataSet
-    open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "没有数据";
-        return NSAttributedString(string: text, attributes: nil)
+    open override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return super.title(forEmptyDataSet: scrollView)
     }
-    open func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
-        let text = "重新加载";
-        return NSAttributedString(string: text, attributes: nil)
+    open override func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+        return super.buttonTitle(forEmptyDataSet: forEmptyDataSet, for: state)
     }
     
-    open func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return true
+    open override func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return super.emptyDataSetShouldDisplay(scrollView)
     }
     
-    open func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        loadData()
+    open override func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        super.emptyDataSet(scrollView, didTap: button)
+        headerRefresh()
     }
-    
 }
