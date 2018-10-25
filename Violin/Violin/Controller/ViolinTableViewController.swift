@@ -115,6 +115,11 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         setEmptyDataSource()
     }
     
+    open override func handleUnauthorize(_ callback: @escaping () -> ()) {
+        super.handleUnauthorize(callback)
+        setEmptyDataSource()
+    }
+    
     // MARK: DZNEmptyDataSet
     open override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return super.title(forEmptyDataSet: scrollView)

@@ -22,7 +22,7 @@ class SecondTableViewController: BaseTableViewController<LawyerCustomerParameter
     override func loadData() {
         getQueryParmeter().addOrder(name: "test", desc: false)
         mineService.request(methed: "customers", parameters: getQueryParmeter(), succeed: {(result: QueryResult<ViewLawyerCustomer>) in
-            self.setDataSource(dataSource: QueryResult<ViewLawyerCustomer>())
+            self.setDataSource(dataSource: result)
         }, failure: {(error: NetworkError) in
             print("failure")
         })
