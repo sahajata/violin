@@ -14,6 +14,8 @@ open class ViolinSimpleTableViewController: UITableViewController, UIGestureReco
     
     open var emptyDataButtonTitle = "重新加载"
     
+    open var emptyDataImage = UIImage()
+    
     // MARK: NetworkErrorDelegate
     open func handleUnauthorize(_ callback: @escaping () -> ()) {
     }
@@ -50,6 +52,14 @@ open class ViolinSimpleTableViewController: UITableViewController, UIGestureReco
     }
     
     open func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    open  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return self.emptyDataImage
+    }
+    
+    open func emptyDataSetShouldAnimateImageView(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
     
