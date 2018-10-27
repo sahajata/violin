@@ -132,11 +132,11 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         return super.emptyDataSetShouldDisplay(scrollView)
     }
     
-    open  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    open override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return super.image(forEmptyDataSet: scrollView)
     }
     
-    open func emptyDataSetShouldAnimateImageView(_ scrollView: UIScrollView!) -> Bool {
+    open override func emptyDataSetShouldAnimateImageView(_ scrollView: UIScrollView!) -> Bool {
         return super.emptyDataSetShouldAnimateImageView(scrollView)
     }
     
