@@ -29,6 +29,14 @@ open class ViolinViewController: UIViewController, UIGestureRecognizerDelegate, 
     }
     
     open func handleBusinessExcepion(messages: Dictionary<String, String>) {
+        var message: String = String.EMPTY
+        for (key, value) in messages {
+            message += value
+            if (messages.count > 1) {
+                message += String.ENTER
+            }
+        }
+        toast(message)
     }
     
     open func handleTimeout() {
