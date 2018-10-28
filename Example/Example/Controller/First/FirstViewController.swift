@@ -35,6 +35,7 @@ class FirstViewController: BaseViewController {
 //        }, failure: {(error: NetworkError) in
 //            print("failure")
 //        })
+        
         ruleService = ViolinServiceManager.create(type: RuleService.self, delegate: self)
         ruleService.request(methed: "getRule", succeed: {(result: Dictionary<String, Any>) in
             print(result["consultServiceCharge"] as! Int)

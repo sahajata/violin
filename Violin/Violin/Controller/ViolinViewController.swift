@@ -38,7 +38,18 @@ open class ViolinViewController: UIViewController, UIGestureRecognizerDelegate, 
         
     }
     
-    open func toast(_ text: String){
+    open func beginLoding() -> MBProgressHUD {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .indeterminate
+        hud.show(animated: true)
+        return hud
+    }
+    
+    open func endLoding(hud: MBProgressHUD) {
+        hud.hide(animated: true)
+    }
+    
+    open func toast(_ text: String) {
         let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         hud.mode = .text
         hud.label.text = text

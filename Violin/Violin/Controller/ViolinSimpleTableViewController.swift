@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 open class ViolinSimpleTableViewController: UITableViewController, UIGestureRecognizerDelegate, NetworkErrorDelegate {
     
@@ -41,6 +42,25 @@ open class ViolinSimpleTableViewController: UITableViewController, UIGestureReco
     
     open func handleUnknown() {
         self.emptyDataTitle = "未知异常"
+    }
+    
+    open func beginLoding() -> MBProgressHUD {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .indeterminate
+        hud.show(animated: true)
+        return hud
+    }
+    
+    open func endLoding(hud: MBProgressHUD) {
+        hud.hide(animated: true)
+    }
+    
+    open func toast(_ text: String){
+        let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        hud.mode = .text
+        hud.label.text = text
+        hud.label.numberOfLines = 5
+        hud.hide(animated: true, afterDelay: 2.0)
     }
     
     // MARK: DZNEmptyDataSet

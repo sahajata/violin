@@ -5,6 +5,7 @@
 //  Created by liuzhiyi on 2018/9/10.
 //  Copyright © 2018年 Karma. All rights reserved.
 //
+import MBProgressHUD
 
 public protocol NetworkErrorDelegate {
     
@@ -28,6 +29,12 @@ public protocol NetworkErrorDelegate {
     
     // 处理未知异常
     func handleUnknown()
+    
+    // 开始加载
+    func beginLoding() -> MBProgressHUD
+    
+    // 结束加载
+    func endLoding(hud: MBProgressHUD)
     
     
 }
