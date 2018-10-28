@@ -31,10 +31,10 @@ public protocol NetworkErrorDelegate {
     func handleUnknown()
     
     // 开始加载
-    func beginLoding() -> MBProgressHUD
+    func beginLoading() -> MBProgressHUD
     
     // 结束加载
-    func endLoding(hud: MBProgressHUD)
+    func endLoading(hud: MBProgressHUD)
     
     
 }

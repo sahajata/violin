@@ -38,14 +38,14 @@ open class ViolinViewController: UIViewController, UIGestureRecognizerDelegate, 
         
     }
     
-    open func beginLoding() -> MBProgressHUD {
+    open func beginLoading() -> MBProgressHUD {
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = .indeterminate
         hud.show(animated: true)
         return hud
     }
     
-    open func endLoding(hud: MBProgressHUD) {
+    open func endLoading(hud: MBProgressHUD) {
         hud.hide(animated: true)
     }
     

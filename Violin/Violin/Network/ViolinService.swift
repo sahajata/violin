@@ -28,18 +28,18 @@ open class ViolinService {
     
     public func upload(methed: String, file: Data, name: String, succeed: @escaping (UploadResult)-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let data = MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: "file", fileName: name, mimeType: "image/png")
         let task: Task = .uploadMultipart([data])
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
         
         let succeedBlock = {(result: [UploadResult]) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result[0])
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.upload(methed: methed, file: file, name: name, succeed: succeed, failure: failure)
             }
@@ -50,7 +50,7 @@ open class ViolinService {
     
     public func upload(methed: String, files: Dictionary<String, Data>, succeed: @escaping ([UploadResult])-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         var data = [MultipartFormData]()
         for (name,file) in files {
             data.append(MultipartFormData(provider: MultipartFormData.FormDataProvider.data(file), name: "file", fileName: name, mimeType: "image/png"))
@@ -59,11 +59,11 @@ open class ViolinService {
         let service: SimpleService = SimpleService(baseURL: URL(string: serverUrl)!, path: "/\(beanId)/\(methed)", method: .post, task: task);
         
         let succedBlock = {(result: [UploadResult]) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.upload(methed: methed, files: files, succeed: succeed, failure: failure)
             }
@@ -92,14 +92,14 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         let succedBlock = {(result: T) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -115,16 +115,16 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         
         let succedBlock = {(result: [T]) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -140,16 +140,16 @@ open class ViolinService {
     
     private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping (T)-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         
         let succedBlock = {(result: T) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -165,16 +165,16 @@ open class ViolinService {
     
     private func request<T: BaseMappable>(methed: String, parameters: [Any], succeed: @escaping ([T])-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         
         let succedBlock = {(result: [T]) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -190,16 +190,16 @@ open class ViolinService {
     
     private func request<T>(methed: String, parameters: [Any], succeed: @escaping (Dictionary<String, T>)-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         
         let succedBlock = {(result: Dictionary<String, T>) in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed(result)
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
@@ -215,16 +215,16 @@ open class ViolinService {
     
     private func request(methed: String, parameters: [Any], succeed: @escaping ()-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
-        if (delegate != nil) { hud = delegate?.beginLoding() }
+        if (delegate != nil) { hud = delegate?.beginLoading() }
         let service: SimpleService = buildService(methed, parameters)
         
         let succedBlock = {() in
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             succeed()
         }
         
         let failureBlock = {(error: Error) in // 因为泛型原因导致无法通用处理UNAUTHORIZE异常，无奈冗余
-            if (self.delegate != nil && hud != nil) { self.delegate?.endLoding(hud: hud!) }
+            if (self.delegate != nil && hud != nil) { self.delegate?.endLoading(hud: hud!) }
             let callbackBlock = {() in
                 self.request(methed: methed, parameters: parameters, succeed: succeed, failure: failure)
             }
