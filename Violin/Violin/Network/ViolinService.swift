@@ -77,6 +77,7 @@ open class ViolinService {
         if (!parameters.isEmpty) {
             let encoding = URLEncoding(destination: .methodDependent, arrayEncoding: .noBrackets, boolEncoding: .literal)
             let json = JsonUtil.toJson(array: parameters).removeSpecialCharacters()
+            print("request data: \(json)")
             let args = ["args": json]
             task = .requestParameters(parameters: args, encoding: encoding)
         }
