@@ -32,30 +32,34 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
     open var dataSource: QueryResult<R> = QueryResult<R>()
     
     open func setDataSource(dataSource: QueryResult<R>) {
-        header.endRefreshing()
-        self.dataSource.paging = dataSource.paging
-        self.dataSource.records += dataSource.records
-        let isNotEmpty: Bool = dataSource.records.count > 0
-        header.isHidden = !isNotEmpty
-        footer.isHidden = !isNotEmpty
+        DispatchQueue.main.async {
+            self.header.endRefreshing()
+            self.dataSource.paging = dataSource.paging
+            self.dataSource.records += dataSource.records
+            let isNotEmpty: Bool = dataSource.records.count > 0
+            self.header.isHidden = !isNotEmpty
+            self.footer.isHidden = !isNotEmpty
             
-        if (isNotEmpty && (dataSource.paging?.morePage)!) {
-            footer.resetNoMoreData()
-            footer.endRefreshing()
-        } else {
-            footer.endRefreshingWithNoMoreData()
+            if (isNotEmpty && (dataSource.paging?.morePage)!) {
+                self.footer.resetNoMoreData()
+                self.footer.endRefreshing()
+            } else {
+                self.footer.endRefreshingWithNoMoreData()
+            }
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
     }
     
     open func setEmptyDataSource() {
-        self.dataSource.paging = Paging()
-        self.dataSource.records = []
-        header.isHidden = true
-        footer.isHidden = true
-        footer.resetNoMoreData()
-        footer.endRefreshing()
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.dataSource.paging = Paging()
+            self.dataSource.records = []
+            self.header.isHidden = true
+            self.footer.isHidden = true
+            self.footer.resetNoMoreData()
+            self.footer.endRefreshing()
+            self.tableView.reloadData()
+        }
     }
     
     open override func viewDidLoad() {
