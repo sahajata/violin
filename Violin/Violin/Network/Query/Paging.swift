@@ -11,10 +11,10 @@ public class Paging: ViolinModel {
     
     public static let UNKNOWN_TOTAL = -1
     
-    var pageSize: Int?
-    var pageNo: Int?
-    var total: Int = UNKNOWN_TOTAL
-    var morePage: Bool?
+    open var pageSize: Int?
+    open var pageNo: Int?
+    open var total: Int = UNKNOWN_TOTAL
+    open var morePage: Bool?
     
     public required init() { }
     public required init?(map: Map) { }
