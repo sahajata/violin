@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Violin" # 项目名称
-  s.version      = "1.3.8" # 版本号
+  s.version      = "1.3.9" # 版本号
   s.license      = "MIT" # 开源证书
   s.summary      = "IOS framework" # 简介
 
