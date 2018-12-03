@@ -7,7 +7,7 @@
 //
 import MBProgressHUD
 
-public protocol NetworkErrorDelegate {
+public protocol NetworkErrorDelegate : NSObjectProtocol {
     
     // 处理未授权异常
     func handleUnauthorize(_ callback : @escaping () -> ())

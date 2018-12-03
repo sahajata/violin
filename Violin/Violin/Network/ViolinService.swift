@@ -24,7 +24,7 @@ open class ViolinService {
         return String.EMPTY
     }
     
-    open var delegate: NetworkErrorDelegate?
+    weak open var delegate: NetworkErrorDelegate?
     
     public func upload(methed: String, file: Data, name: String, succeed: @escaping (UploadResult)-> (), failure: @escaping(NetworkError)-> ()) {
         var hud: MBProgressHUD? = nil
