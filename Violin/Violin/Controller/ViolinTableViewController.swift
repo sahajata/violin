@@ -34,7 +34,12 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
     open func setDataSource(dataSource: QueryResult<R>) {
         DispatchQueue.main.async {
             if (dataSource.paging?.pageNo == 1) {
-                self.setEmptyDataSource()
+                self.dataSource.paging = Paging()
+                self.dataSource.records = []
+                self.header.isHidden = true
+                self.footer.isHidden = true
+                self.footer.resetNoMoreData()
+                self.footer.endRefreshing()
             }
             self.header.endRefreshing()
             self.dataSource.paging = dataSource.paging
