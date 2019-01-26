@@ -33,6 +33,9 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
     
     open func setDataSource(dataSource: QueryResult<R>) {
         DispatchQueue.main.async {
+            if (dataSource.paging?.pageNo == 1) {
+                self.setEmptyDataSource()
+            }
             self.header.endRefreshing()
             self.dataSource.paging = dataSource.paging
             self.dataSource.records += dataSource.records
@@ -120,8 +123,8 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
     }
     
     open override func handleUnauthorize(_ callback: @escaping () -> ()) {
-        super.handleUnauthorize(callback)
         setEmptyDataSource()
+        super.handleUnauthorize(callback)
     }
     
     // MARK: DZNEmptyDataSet
