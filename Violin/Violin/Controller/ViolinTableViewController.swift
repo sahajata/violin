@@ -36,7 +36,10 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
             if (dataSource.paging?.pageNo == 1) {
                 self.dataSource.paging = Paging()
                 self.dataSource.records = []
+                
                 self.header.isHidden = true
+                self.header.endRefreshing()
+                
                 self.footer.isHidden = true
                 self.footer.resetNoMoreData()
                 self.footer.endRefreshing()
@@ -62,7 +65,10 @@ open class ViolinTableViewController<Q: QueryParameter, R: ViolinModel>: ViolinS
         DispatchQueue.main.async {
             self.dataSource.paging = Paging()
             self.dataSource.records = []
+            
             self.header.isHidden = true
+            self.header.endRefreshing()
+            
             self.footer.isHidden = true
             self.footer.resetNoMoreData()
             self.footer.endRefreshing()
