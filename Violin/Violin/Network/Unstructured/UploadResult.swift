@@ -19,10 +19,12 @@ open class UploadResult: ViolinModel {
     public var filename: String?
     public var storageUrl: String?
     public var readUrl: String?
+    public var thumbnailReadUrl: String?
     
     open func mapping(map: Map) {
         filename <- map["filename"]
         storageUrl <- map["storageUrl"]
         readUrl <- map["readUrl"]
+        thumbnailReadUrl <- map["thumbnailReadUrl"]
     }
 }
